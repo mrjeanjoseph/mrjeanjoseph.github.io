@@ -1,634 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jean-Joseph</title>
-
-
-    <!-- Bootstrap css file -->
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-    <!-- font awesome icon -->
-    <link rel="stylesheet" href="./css/all.min.css">
-
-    <!-- Magnific pop-up css file -->
-    <link rel="stylesheet" href="./vendor/Magnific-Popup/dist/magnific-popup.css">
-
-    <!-- owl-carousel css file -->
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./vendor/owl-carousel/css/owl.theme.default.min.css">
-
-    <!-- custom css file -->    
-    <link rel="stylesheet" href="./css/style.css">
-
-    <!-- responsive css file -->
-    <link rel="stylesheet" href="./css/responsive.css">
-
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>My Resume</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        html, body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Roboto", sans-serif
+        }
+    </style>
 </head>
 
-<body>
+<body class="w3-gray">
+    <form id="form1" runat="server">
+        <!-- Page Container -->
+        <div class="w3-content w3-margin-top" style="max-width: 1400px;">
 
-    <!-- ========================== START HEADER AREA ======================-->
-    <header class="header_area">
-        <div class="main-menu">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#"><img src="./img/logo.png" alt="logo"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="mr-auto"></div>
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Services</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Portfolio</a>
-                        </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pages</a>
-                        </li>
+            <!-- The Grid -->
+            <div class="w3-row-padding">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blogs</a>
-                        </li>
+                <!-- Left Column -->
+                <div class="w3-third">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contacts</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <!-- =========================== END HEADER AREA =======================-->
-
-
-    <!-- =========================== START MAIN AREA =======================-->
-    <main class="site-main">
-
-        <!-- ====================== START BANNER AREA ==================-->
-        <section class="site-banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12 site-title">
-                        <h3 class="title-text">Hey</h3>
-                        <h1 class="title-text text-uppercase">I am Jean-Joseph</h1>
-                        <h4 class="title-text text-uppercase">The Entry Level C# and ASP.Net Developer you've been
-                            looking for</h4>
-                        <div class="site-buttons">
-                            <div class="d-flex flex-row flex-wrap">
-                                <button type="button" class="btn button primary-button mr-4 text-uppercase">Hire
-                                    Me</button>
-                                <button type="button" class="btn button secondary-button text-uppercase">Get
-                                    CV/</button>
+                    <div class="w3-white w3-text-grey w3-card-4">
+                        <div class="w3-display-container">
+                            <img src="images/img1.jpg" style="width: 100%" alt="Portfolio" />
+                            <div class="w3-display-bottomleft w3-container w3-text-black">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 banner-image">
-                        <img src="./img/test1.png" alt="banner-img" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ======================= END BANNER AREA ===================-->
+                        <div class="w3-container">
+                            <h2><b>Frednel Jean-Joseph</b></h2>
+                            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-indigo"></i>Programmer, Designer & Developer</p>
+                            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-indigo"></i>Raleigh, NC</p>
+                            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-indigo"></i>mr.jeanjoseph@gmail.com</p>
+                            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-indigo"></i>(919) 590-0999</p>
+                            <hr />
 
-        <!-- =========================  ABOUT AREA =====================-->
-        <section class="about-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-md-12">
-                        <div class="about-image">
-                            <img src="./img/about-us.png" alt="" class="src">
+                            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-indigo"></i>Skills</b></p>
+                            <p>HTML/CSS/JS/Bootstrap</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-green" style="width: 75%">75%</div>
+                            </div>
+                            <p>ASP.Net Core</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-light-green" style="width: 60%">60%</div>
+                            </div>
+                            <p>C-Sharp</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-yellow" style="width: 60%">60%</div>
+                            </div>
+                            <p>Java</p>
+                            <div class="w3-light-grey w3-round-xlarge w3-small">
+                                <div class="w3-container w3-center w3-round-xlarge w3-orange" style="width: 40%">40%</div>
+                            </div>
+                            <br />
+
+                            <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-indigo"></i>Languages</b></p>
+                            <p>English</p>
+                            <div class="w3-light-grey w3-round-xlarge">
+                                <div class="w3-center w3-round-xlarge w3-green" style="height: 24px; width: 100%">100%</div>
+                            </div>
+                            <p>Haitian Creole</p>
+                            <div class="w3-light-grey w3-round-xlarge">
+                                <div class="w3-center w3-round-xlarge w3-green" style="height: 24px; width: 100%">100%</div>
+                            </div>
+                            <p>French</p>
+                            <div class="w3-light-grey w3-round-xlarge">
+                                <div class="w3-center w3-round-xlarge w3-light-green" style="height: 24px; width: 70%">70%</div>
+                            </div>
+                            <br />
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 about-title">
-                        <h2 class="text-uppercase pt-5">
-                            <span>Let me</span>
-                            <span>Introduce</span>
-                            <span>myself</span>
-                        </h2>
-                        <div class="paragraph py-4 w-75">
-                            <p class="para">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi esse nemo sed accusamus,
-                                voluptates sunt omnis suscipit ipsum
-                            <p class="para">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi esse nemo sed accusamus,
-                                voluptates sunt omnis suscipit ipsum Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit. Nisi esse nemo sed accusamus, voluptates sunt omnis suscipit ipsum Lorem ipsum
-                                dolor sit amet consectetur adipisicing elit. Nisi esse nemo sed accusamus. There is no
-                                way voluptates sunt omnis suscipit ipsum
+                    <br />
+
+                    <!-- End of the left side -->
+                </div>
+
+                <!-- Start the right side -->
+                <div class="w3-twothird">
+
+                    <div class="w3-container w3-card w3-white w3-margin-bottom">
+                        <h2 class="w3-text-grey w3-padding-16"><i class=" fa fa-handshake-o fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>Expertise & Aspiration</h2>
+                        <div class="w3-container">
+                            <p>
+                                •	Fundamental and practical knowledge of Computer Science, Programming languages and Information System Concepts</br>
+                                •	Fundamental knowledge and practical experience with C#, ASP.NET, HTML/CSS/Bootstraps/jQuery and SQL Database</br>
+                                •	Ability and passion for dissecting/solving problems with a fact based, data driven, and creative approach</br>
+                                •	Flourish in fast-paced environments and quickly adapt to company changing priorities</br>
+                                •	Aspiration to become a full statck application or web developer</br>
                             </p>
+                            <hr />
                         </div>
-                        <button type="button" class="btn button primary-button text-uppercase">Download CV/</button>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- ======================= END ABOUT AREA ====================-->
 
-        <!-- ========================= BRAND AREA ======================-->
-        <section class="brand-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-12 col-md-12">
-                        <div class="first-row row">
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo1.png" alt="Brand-1">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo2.png" alt="Brand-2">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo3.png" alt="Brand-3">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo4.png" alt="Brand-4">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo5.png" alt="Brand-5">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo6.png" alt="Brand-6">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo7.png" alt="Brand-7">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo8.png" alt="Brand-8">
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="single-brand">
-                                    <img src="./img/brands/logo9.png" alt="Brand-9">
-                                </div>
-                            </div>
+                    <div class="w3-container w3-card w3-white w3-margin-bottom">
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>Work Experience</h2>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>Analytic Associate / CRM Analysts - Accenture PLC</b></h5>
+                            <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - <span class="w3-tag w3- w3-round">Current</span></h6>
+                            <p>
+                                •   Promptly respond and resolve service issues and inquiries from clients via phone and emails.</br>
+                                •   Maintain and organize good record of documentation for all issues and errors resolution.</br>
+                                •   Commended for initiative, persuasive customer focus and dependability in performance evaluation.</br>
+                                •   Maintain and organize good record of documentation for all issues and errors resolution.
+                            </p>
+                            <hr />
                         </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-12 col-md-12">
-                        <div class="experience-area">
-                            <div class="d-flex flex-row years-area">
-                                <h2 class="p-3 years">10</h2>
-                                <h2>
-                                    <span>Years</span>
-                                    <span>Experience</span>
-                                    <span>Working</span>
-                                </h2>
-                            </div>
-                            <div class="d-flex flex-row flex-wrap call-area">
-                                <span><i class="fas fa-phone-alt fa-3x px-3"></i></span>
-                                <div class="call-now">
-                                    <a href="#" class="text-uppercase h4 font-roboto">Call Now</a>
-                                    <span class="font-roboto py-2">(900) 590-0999</span>
-                                </div>
-                            </div>
-                            <div class="bg-panel"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ======================= END BRAND AREA ====================-->
 
-        <!-- ===================== START SERVICE AREA ==================-->
-        <section class="services-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center services-title">
-                        <h1 class="text-uppercase title-text">Services Offer</h1>
-                        <p class="para">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum et ipsum odio neque
-                            perspiciatis reprehenderit modi recusandae officia at? Molestiae, in explicabo? Facere, odit
-                            repudiandae!
-                        </p>
-                    </div>
-                </div>
-                <div class="containter services-list">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="services">
-                                <div class="services-img text-center py-4">
-                                    <img src="./img/servcies/s1.png" alt="Services-1">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-uppercase font-roboto">WP DEVELOPER</h5>
-                                    <p class="card-text text-secondary">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ut praesentium
-                                        incidunt?
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>Real Estate Agent - Keller William of Raleigh</b></h5>
+                            <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Mar 2012 - Dec 2014</h6>
+                            <p>
+                                •	Negotiated home prices, earnest money deposits and concessions.</br>
+                                •	Planned and executed marketing and sales strategies.</br>
+                                •	Nurtured client relationship to maintain reputation and deliver exceptional customer service.</br>
+                                •	Helped client find homes and provided assurance of their investment.</br>
+                                •	Effectively assisted clients through closing process.
+                            </p>
+                            <hr />
                         </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="services">
-                                <div class="services-img text-center py-4">
-                                    <img src="./img/servcies/s2.png" alt="Services-2">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-uppercase font-roboto">UX/UI DESIGN</h5>
-                                    <p class="card-text text-secondary">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ut praesentium
-                                        incidunt?
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="services">
-                                <div class="services-img text-center py-4">
-                                    <img src="./img/servcies/s3.png" alt="Services-3">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-uppercase font-roboto">WEB DESIGNER</h5>
-                                    <p class="card-text text-secondary">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ut praesentium
-                                        incidunt?
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12">
-                            <div class="services">
-                                <div class="services-img text-center py-4">
-                                    <img src="./img/servcies/s4.png" alt="Services-4">
-                                </div>
-                                <div class="card-body text-center">
-                                    <h5 class="card-title text-uppercase font-roboto">SEO OPTIMIZER</h5>
-                                    <p class="card-text text-secondary">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste ut praesentium
-                                        incidunt?
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ====================== END SERVICE AREA ===================-->
 
-        <!-- ======================= PROJECT AREA ======================-->
-        <section class="project-area">
-            <div class="container">
-                <div class="project-title pb-5">
-                    <h1 class="text-uppercase title-h1">Recently Done Project</h1>
-                    <h1 class="text-uppercase title-h1">Quality Work</h1>
-                </div>
-                <div class="button-group">
-                    <button type="button" class="active" id="btn1" data-filter="*">All</button>
-                    <button type="button" data-filter=".popular">Popular</button>
-                    <button type="button" data-filter=".latest">Latest</button>
-                    <button type="button" data-filter=".following">Following</button>
-                    <button type="button" data-filter=".upcoming">upcoming</button>
-                </div>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>Lead Sales Representative - Sprint Corporation</b></h5>
+                            <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jun 2010 - Mar 2012</h6>
+                            <p>
+                                •	Supervised and trained new team members in sales strategies and in customer relationship.</br>
+                                •	Handled customer escalations to reduce churn - 50% month over month.</br>
+                                •	Monitored and helped maintain customer satisfaction above 90% monthly.</br>
+                                •	Oversaw store operation such as inventory processing, merchandise counting, and end of day cash balancing.</br>
+                                •	Develop hands-on supervisory environment and monitor sales generation and management.</br>
+                                •	Received Top Salesperson award for the year 2013 & 2014.
+                            </p>
+                            <hr />
+                        </div>
+                    </div>
 
-                <div class="row grid">
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p1.jpg">
-                                    <img src="./img/portfolio/p1.jpg" alt="portfolio-1">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Paint Wall </h4>
-                                <span class="text-secondary">latest, Portfolio</span>
-                            </div>
+                    <div class="w3-container w3-card w3-white">
+                        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>Education</h2>
+                        <div class="w3-container">
+                            <h5 class="w3-opacity"><b>East Carolina University</b></h5>
+                            <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Graduated - May 2019</h6>
+                            <p>BSBA Management Information System</p>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p2.jpg">
-                                    <img src="./img/portfolio/p2.jpg" alt="portfolio-1">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Wood & Light</h4>
-                                <span class="text-secondary">Popular, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p3.jpg">
-                                    <img src="./img/portfolio/p3.jpg" alt="portfolio-3">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Elevator Cave</h4>
-                                <span class="text-secondary">Popular, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p4.jpg">
-                                    <img src="./img/portfolio/p4.jpg" alt="portfolio-4">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Adore & Endure </h4>
-                                <span class="text-secondary">latest, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p6.jpg">
-                                    <img src="./img/portfolio/p6.jpg" alt="portfolio-6">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">City Light</h4>
-                                <span class="text-secondary">Upcoming, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p7.jpg">
-                                    <img src="./img/portfolio/p7.jpg" alt="portfolio-7">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Crowded Indoor</h4>
-                                <span class="text-secondary">Following, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item following">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p8.jpg">
-                                    <img src="./img/portfolio/p8.jpg" alt="portfolio-8">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Painted Pink </h4>
-                                <span class="text-secondary">Following, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p9.jpg">
-                                    <img src="./img/portfolio/p9.jpg" alt="portfolio-9">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Bricked and Greened</h4>
-                                <span class="text-secondary">Upcoming, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 element-item upcoming">
-                        <div class="our-project">
-                            <div class="img">
-                                <a class="test-popup-link" href="./img/portfolio/p5.jpg">
-                                    <img src="./img/portfolio/p5.jpg" alt="portfolio-5">
-                                </a>
-                            </div>
-                            <div class="title py-4">
-                                <h4 class="text-uppercase">Peculiar Arts</h4>
-                                <span class="text-secondary">Upcoming, Portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ====================== END PROJECT AREA ===================-->
-
-        <!-- ======================== ABOUT ME AREA ====================-->
-        <section class="about-area">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-12">
-                        <div class="about-title">
-                            <h1 class="text-uppercase title-h1">Client Say about me</h1>
-                            <p class="para">
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis qui tenetur
-                                dolores ratione facilis pariatur amet est. Commodi dolorem cum qui ad!
+                        <hr />
+                        <div class="w3-container">
+                            <h2 class="w3-text-grey w3-padding-16"><i class=" fa fa-handshake-o fa-fw w3-margin-right w3-xxlarge w3-text-indigo"></i>Activities & Honors</h2>
+                            <p>
+                                •	Awarded Top 35 Salesperson in the region at Sprint Corporation in 2015</br>
+                                •	4 years bus driver, landscaping/maintenance at Bethesda Place of worship, Bradenton FL</br>
+                                •	Attended BOLD (Business Objective Life by Design) business seminar 7 weeks</br>
+                                •	Member of Beta Gamma Sigma (3.5 GPA qualification requirements)</br>
                             </p>
                         </div>
                     </div>
+
+
+                    <!-- End Right Column -->
+                    <!-- End Grid -->
                 </div>
+
+                <!-- End Page Container -->
             </div>
 
-            <div class="container carousel py-lg-5">
-                <div class="owl-carousel owl-theme">
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img1.JPG" alt="img1" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Sire Motthon</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img2.JPG" alt="img2" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Erik Seqovich</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img3.JPG" alt="img3" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Mr. & Mrs Barrington</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img4.JPG" alt="img4" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Hilberto Nunez</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img5.JPG" alt="img5" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Lockheed Bots</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img6.JPG" alt="img6" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Desire rice</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img7.JPG" alt="img7" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Andre WhiteCastle</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img8.JPG" alt="img8" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Sire Motthon</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img9.JPG" alt="img9" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Diamond Whistle</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                    <div class="client row">
-                        <div class="col-lg-4 col-md-12 client-img">
-                            <img src="./img/testimonials/img10.JPG" alt="img10" class="img-fluid">
-                        </div>
-                        <div class="col-lg-8 col-md-12 about-client">
-                            <h4 class="text-uppercase">Eddie Lott</h4>
-                            <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ullam modi
-                                exercitationem!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- ====================== END ABOUT ME AREA ==================-->
+            <footer class="w3-container w3-indigo w3-center w3-margin-top">
+                <p>Find me on social media.</p>
 
-        <!-- ====================== SUBSCRIBE ME AREA ==================-->
-        <section class="subscribe-us-area">
-            <div class="container subscribe">
-                <div class="row">
-                    <div class="col-lg-12 text-center subscribe-title">
-                        <h4 class="text-uppercase">Get updates from anywhere</h4>
-                        <p class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                    </div>
-                </div>
-                <div class="d-sm-flex justify-content-center">
-                    <form class="w-50">
-                        <div class="row d-flex flex-row flex-wrap">
-                            <div class="col input-textbox">
-                                <input type="text" id="txtemail" class="form-control"placeholder="Enter your email">
-                            </div>
-                            <div class="col">
-                                <div class="btn-submit">
-                                    <button type="submit" class="btn btn-success float-right">Subscribe</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-        <!-- =================== END SUBSCRIBE ME AREA =================-->
-    </main>
-    <!-- ============================ END MAIN AREA ========================-->
-
-    <!-- ========================== START FOOTER AREA ======================-->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="">
-                <div class="site-logo text-center py-4">
-                    <a href="#"><img src="./img/logo.png" alt="logo"> </a>
-                </div>
-                <div class="social text-center">
-                    <h5 class="text-uppercase">follow me</h5>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-google"></i></a>
-                    <a href=""><i class="fab fa-youtube"></i></a>
-                </div>
-                <div class="copyrights text-center">
-                    <p class="para">
-                        Copyright 2020 All rights reserved | This website is created by
-                        <a href="#"><span style="color: var(--primary-color);">DVC Enterprises</span></a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- =========================== END FOOTER AREA =======================-->
-
-
-    <!-- jquery js file -->
-    <script src="./js/jquery.3.4.1.js"></script>
-
-    <!-- Bootstrap js file -->
-    <script src="./js/bootstrap.min.js"></script>
-
-    <!-- isotope js library -->
-    <script src="./vendor/isotope/isotope.min.js"></script>
-
-    <!-- Magnific pop-up css file -->
-    <script src="./vendor/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
-
-    <!-- owl-carousel js file -->
-    <script src="./vendor/owl-carousel/js/owl.carousel.min.js"></script>
-
-    <!-- custom js file -->
-    <script src="./js/main.js"></script>
-
+                <a href="https://www.linkedin.com/in/mrjeanjoseph/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity" style="padding:2rem; font-size:24"></i></a>
+                <a href="https://mrjeanjoseph.github.io" target="_blank"><i class="fa fa-github w3-hover-opacity" style="padding:2rem"></i></a>
+                <a href="https://twitter.com/mrjeanjoseph" target="_blank"><i class="fa fa-twitter w3-hover-opacity" style="padding:2rem"></i></a>
+                <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+                <p>Edited by Jean-Joseph</p>
+            </footer>
+    </form>
 </body>
-
 </html>
