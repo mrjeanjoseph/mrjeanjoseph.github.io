@@ -53,7 +53,13 @@
     box-shadow: var(--box-shadow);
 }
 
-p.para{
+.button.third-button{
+    background:grey;
+    background-clip: padding-box;
+    color: whitesmoke;
+}
+
+.para{
     color: var(--text-color);
     font: normal 500 16px/ 25px var(--roboto);
 }
