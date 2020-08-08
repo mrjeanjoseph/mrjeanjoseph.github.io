@@ -1,0 +1,146 @@
+/* import fonts from fonts.css file */
+@import url(./fonts.css);
+
+
+/* css variables */
+@import url(./partials/_variables.css);
+
+
+/* import global styling */
+@import url(./partials/_global.css);
+
+
+/* BANNER AREA */
+.banner_top .main-menu .navbar .navbar-brand{
+    padding: 0 2rem 0 5rem;
+}
+
+.banner_top .main-menu .navbar{
+    padding: 1rem 2rem;
+}
+
+.banner_top .main-menu .navbar .nav-link{
+    font: normal 500 15px/2px var(--roboto);
+    padding: 1rem;
+    text-transform: uppercase;
+    color: var(--title-color); 
+}
+
+.banner_top .main-menu .navbar-nav .active a{
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.banner_top .main-menu .navbar-nav a:hover{
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* END BANNER AREA */
+
+
+
+/* INTRO AREA */
+.site-main .site_intro .banner-image img{    
+    display: block;
+    background-color: bisque;
+    margin: 0 auto;
+    height: auto;
+    width: 350px; 
+    -webkit-border-radius: 200%;
+    -moz-border-radius: 200%;
+    -ms-border-radius: 150%;
+    -o-border-radius: 150%;
+    border-radius: 200%;
+    -ms-transform: rotate(10deg);
+    transform: rotate(10deg); 
+}
+
+
+
+.site-main .site_intro .banner-image .site-buttons{
+    padding-top: 1rem;
+}
+
+.site-main .site_intro{
+    padding: 7rem 0;
+}
+
+.site-main .site_intro .site-title h1{
+    font-size: 2.5rem;
+    padding-left: 12rem;
+}
+
+.site-main .site_intro .site-title p{
+    font-size: 1.3rem;
+}
+
+.site-main .site_intro .site-title .para{
+    padding-left: 12rem;
+}
+
+/* END INTRO AREA */
+
+
+
+/* PROJECTS AREA */
+.site-main .projects_area{
+    padding: 7rem 2rem;
+}
+
+.site-main .projects_area .projects-title{
+    padding: 0 14rem;
+}
+
+.site-main .projects_area .projects-title h1{
+    font-size: 35px;
+}
+
+.site-main .projects_area .para{
+    font-size: 1.3rem;
+}
+.site-main .projects_area .projects-list .button{
+    padding-top: 1rem;
+    justify-content: center;
+}
+
+.site-main > .projects_area .projects{
+    background: rgba(253, 248, 248, 0.973);
+    width: 16rem;
+    height: 28rem;
+    margin: 2rem .5rem ;
+    transition: box-shadow .1s ease;
+}
+
+.site-main > .projects_area .projects:hover{
+    box-shadow: var(--box-shadow);
+}
+/* END PROJECTS AREA */
+
+
+
+/* FOOTER AREA */
+footer.footer-area{
+    padding: 1rem 1rem;
+    margin: 0rem .5rem;
+    background-color: whitesmoke;
+    }
+
+footer.footer-area .social h5{
+    font: normal 200 25px/15px var(--roboto);
+}
+
+footer.footer-area .social a > i{
+    font-size:22px;
+    padding: .5rem;
+    color: var(--border-color);
+}
+
+footer.footer-area .social a:hover >i{
+    color: var(--primary-color);
+}
+/* END FOOTER AREA */
