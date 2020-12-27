@@ -1,0 +1,16 @@
+﻿@page
+@model ResumeCV.Pages.BiographyModel
+@{
+    ViewData["Title"] = "Bio";
+}
+
+<h4>Biography</h4>
+
+
+
+<form>
+    <div class="clearfix">
+        <img class="mainImg" src="./img/mainphoto.jpg" alt="Pineapple" width="200" height="200">
+        @Model.ReadingTextFiles;
+    </div>
+</form>

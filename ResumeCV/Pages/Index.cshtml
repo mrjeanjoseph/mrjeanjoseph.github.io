@@ -1,0 +1,129 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!-- ======================== INTRO AREA =======================-->
+<section class="site_intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 site-title">
+                <h1 class="title-text text-uppercase">Welcome, @Model.FirstName</h1>
+                <p class="para">
+                    Entry Level Web Developer with working knowledge of web application deployment,
+                    content creation management, and application integrations.Working knowledge
+                    of user interface, testing and debugging processes. Equipped with diverse skillsets
+                    such as ASP.Net, C#, Microsoft SQL Server.
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-12 banner-image">
+                <img src="./img/mainphoto.jpg" alt="banner-img" class="img-fluid" style="border-radius: 50%" />
+                <div class="site-buttons">
+                    <div class="d-flex flex-row flex-wrap justify-content-center">
+                        <a href="/Supplemental Items/resume.pdf">
+                            <button type="button" class="btn button secondary-button text-uppercase">
+                                <i>Get CV/</i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ======================= END INTRO AREA ===================-->
+<!-- =================== BASIC EXPERIENCE AREA ================-->
+<section class="projects_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center projects-title">
+                <h1 class="text-uppercase title-text">RECENT PROJECTS</h1>
+                <p class="para">
+                    The following projects showcase practical application of technical skills in
+                    programming, scripting and markup languages. Understanding of application frameworks,
+                    and implementation of databases.
+                    <hr />
+                </p>
+            </div>
+        </div>
+        <div class="containter projects-list">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="projects">
+                        <div class="projects-img text-center py-4">
+                            <img src="./img/servcies/s1.png" width="145" height="145" alt="projects-1">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">
+                                Enterprise Application
+                            </h5>
+                            <p class="card-text text-secondary">
+                                Practical knowledge of C#, ASP.Net, SQL Server and ASP.Net Boilerplate to Build
+                                secure web enterprise application.
+                            </p>
+                            <button type="button" class="btn button primary-button text-uppercase">
+                                Click
+                                here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="projects">
+                        <div class="projects-img text-center py-4">
+                            <img src="./img/servcies/s3.png" width="200" height="145" alt="projects-3">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">Content Management</h5>
+                            <p class="card-text text-secondary">
+                                Practical knowledge of Microsoft SQL database, C#, ASP.Net, to Build
+                                secure content management application system.
+                            </p>
+                            <button type="button" class="btn button primary-button text-uppercase">
+                                Click
+                                here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="projects">
+                        <div class="projects-img text-center py-4">
+                            <img src="./img/servcies/s4.png" width="200" height="145" alt="projects-4">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">javascript bundle stack</h5>
+                            <p class="card-text text-secondary">
+                                Intro to and understanding of of MongoDB, Express.js, Angular.js, Vue.js and
+                                Node.js
+                            </p><br><br />
+                            <button type="button" class="btn button primary-button text-uppercase">
+                                Click
+                                here
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="projects">
+                        <div class="projects-img text-center py-4">
+                            <img src="./img/servcies/s2.png" width="200" height="145" alt="projects-2">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title text-uppercase font-roboto">GitHub Projects</h5>
+                            <p class="card-text text-secondary">
+                                Here you can access my GitHub Projects as well as contribution to other
+                                projects.
+                            </p><br><br /><br />
+                            <button type="button" class="btn button third-button text-uppercase">
+                                Upcoming
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ===================== END SERVICE AREA ===================-->

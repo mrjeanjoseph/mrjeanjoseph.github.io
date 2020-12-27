@@ -1,0 +1,12 @@
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\bin\Debug\netcoreapp3.1\TestingCodes.exe
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\bin\Debug\netcoreapp3.1\TestingCodes.deps.json
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\bin\Debug\netcoreapp3.1\TestingCodes.runtimeconfig.json
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\bin\Debug\netcoreapp3.1\TestingCodes.runtimeconfig.dev.json
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\bin\Debug\netcoreapp3.1\TestingCodes.dll
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\bin\Debug\netcoreapp3.1\TestingCodes.pdb
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\obj\Debug\netcoreapp3.1\TestingCodes.AssemblyInfoInputs.cache
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\obj\Debug\netcoreapp3.1\TestingCodes.AssemblyInfo.cs
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\obj\Debug\netcoreapp3.1\TestingCodes.csproj.CoreCompileInputs.cache
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\obj\Debug\netcoreapp3.1\TestingCodes.dll
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\obj\Debug\netcoreapp3.1\TestingCodes.pdb
+C:\Users\Computer\source\repos\WebDevelopmentPortfolio\TestingCodes\obj\Debug\netcoreapp3.1\TestingCodes.genruntimeconfig.cache

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QpzR1nuTKtu5D0Kt0IhpHEZYi62XzuiANpYL/d4vxspVT0zgthg1fZ7QkFHue8pDDbgDb236K1nkw8pRpaBX+w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Computer\\source\\repos\\WebDevelopmentPortfolio\\ResumeCV\\ResumeCV.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Computer\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+  ],
+  "logs": []
+}
