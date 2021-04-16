@@ -10,6 +10,20 @@
 @import url(./partials/_global.css);
 
 
+/* Top Header Ara */
+
+#topHeader
+{
+    background-color:ghostwhite;
+    border-bottom: 1px solid #dfe6e9;
+}
+
+#topHeader a{
+    color: #2d3436;
+    font-weight: 600;
+    font-size: 0.91rem;
+}
+
 /* BANNER AREA */
 
 html, body {
