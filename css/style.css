@@ -1,173 +1,166 @@
-/* import fonts from fonts.css file */
-@import url(./fonts.css);
-
-
-/* css variables */
-@import url(./partials/_variables.css);
-
-
-/* import global styling */
-@import url(./partials/_global.css);
-
-
-/* Top Header Ara */
-
-#topHeader
-{
-    background-color:ghostwhite;
-    border-bottom: 1px solid #dfe6e9;
+/* Header area */
+.header { 
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .05); 
+    padding-top: 70px; 
+    margin-bottom: 70px; 
 }
 
-#topHeader a{
-    color: #2d3436;
-    font-weight: 600;
-    font-size: 0.91rem;
+.header a, .header a:visited, .header a:link, .header a:active { 
+    color: inherit; 
+    text-decoration: none; 
 }
 
-/* BANNER AREA */
-
-html, body {
-    margin: 0;
-    height: 100%;
-    padding: 0;
-    line-height: 1.5;
-    background-color: #dfe6e9;
-    /* background: linear-gradient(to left, lightgreen, whitesmoke); */
+.header a.icon:hover { 
+    color: #333333; 
+    text-decoration: none; 
 }
 
-.banner_top .main-menu .navbar .navbar-brand{
-    padding: 0 2rem 0 5rem;
-    
+.header .profile {    
+    padding: 50px 20px 50px 20px; 
+    max-width: 640px; 
+    box-sizing: border-box; 
+    margin: 0 auto 0 auto; 
 }
 
-.banner_top .main-menu .navbar{
-    padding: 1rem 2rem;
-    background-color: #0a3d62;
+.header .profile .name { 
+    font-size: 35px; 
+    font-weight: bold; 
+    margin-left: -2px; 
 }
 
-.banner_top .main-menu .navbar .nav-link{
-    font: normal 500 15px/2px var(--roboto);
-    padding: 1rem;
-    text-transform: uppercase;
-    color: var(--title-color); 
-    
-}
-
-.banner_top .main-menu .navbar-nav .active a{
-    background: var(--title-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.banner_top .main-menu .navbar-nav a:hover{
-    background: var(--gradient-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* END BANNER AREA */
-
-
-
-/* INTRO AREA */
-.site-main .site_intro .banner-image img{    
+.header .profile .intro {
+    margin-top: 4px; 
     display: block;
-    background-color: bisque;
-    margin: 0 auto;
-    height: auto;
-    width: 350px; 
-    -webkit-border-radius: 200%;
-    -moz-border-radius: 200%;
-    -ms-border-radius: 150%;
-    -o-border-radius: 150%;
-    border-radius: 200%;
-    -ms-transform: rotate(10deg);
-    transform: rotate(10deg); 
+    font-size: 16px; 
+    color: #666666; 
+    line-height: 22px;
 }
 
-
-
-.site-main .site_intro .banner-image .site-buttons{
-    padding-top: 1rem;
+.header .profile .portrait { 
+    float: right; 
+    margin-left: 20px; 
+    position: relative; 
 }
 
-.site-main .site_intro{
-    padding: 7rem 0;
+.header .profile .portrait:after { 
+    display: block;    
+    border-radius: 50%;    
+    border: 1px solid rgba(0, 0, 0, .1); 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    top: 0; 
+    bottom: 0; 
 }
 
-.site-main .site_intro .site-title h1{
-    font-size: 2.5rem;
-    padding-left: 12rem;
+.header .profile .portrait img { 
+    overflow: hidden; 
+    width: 100px; 
+    height: 100px; 
+    border-radius: 15%; 
 }
 
-.site-main .site_intro .site-title p{
-    font-size: 1.3rem;
+.header .profile .links {    
+    padding: 25px 0 0px 0; 
+    vertical-align: center; 
+    font-size: 15px; 
+    color: #8f8f8f;
+    line-height: 25px; 
+    height: 25px; 
 }
 
-.site-main .site_intro .site-title .para{
-    padding-left: 12rem;
+.header .navigation { 
+    box-sizing: border-box; 
+    max-width: 640px; 
+    margin: 0 auto 0 auto; 
+    padding: 0px 20px 0px 20px; 
 }
 
-/* END INTRO AREA */
-
-
-
-/* PROJECTS AREA */
-.site-main .projects_area{
-    padding: 7rem 2rem;
+.header .navigation .tabs { 
+    border-top: 1px solid rgba(0, 0, 0, .05); 
+    display: block; 
+    flex-direction: row; 
+    text-align: left; 
+    margin: 0; 
+    padding: 15px 0 17px 0;
+    font-size: 16px; 
 }
 
-.site-main .projects_area .projects-title{
-    padding: 0 14rem;
+.header .navigation .tab { 
+    display: table-cell; 
+    text-align: left; 
+    letter-spacing: 0; 
+    padding-right: 20px; 
+    white-space: nowrap; 
 }
 
-.site-main .projects_area .projects-title h1{
-    font-size: 35px;
+/* Body Section */
+.item { 
+    max-width: 640px; 
+    width: auto; 
+    margin: 0 auto 15px auto; 
 }
 
-.site-main .projects_area .para{
-    font-size: 1.3rem;
-}
-.site-main .projects_area .projects-list .button{
-    padding-top: 1rem;
-    justify-content: center;
-}
-
-.site-main > .projects_area .projects{
-    background: rgba(253, 248, 248, 0.973);
-    width: 16rem;
-    height: 28rem;
-    margin: 2rem .5rem ;
-    transition: box-shadow .1s ease;
+.card { 
+    display: table; 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 15px 20px 22px 20px; 
+    border-radius: 15px; 
+    background-clip: padding-box; 
+    border: 1px solid rgba(0, 0, 0, .09); 
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .04); 
+    color: #333333;
 }
 
-.site-main > .projects_area .projects:hover{
-    box-shadow: var(--box-shadow);
-}
-/* END PROJECTS AREA */
-
-
-
-/* FOOTER AREA */
-footer.footer-area{
-    padding: 1rem 1rem;
-    margin: 0rem .5rem;
-    background-color: whitesmoke;
+.card a, .item a:visited, .item a:link, .item a:active, .item a:hover { 
+    color: inherit; 
+    text-decoration: none; 
     }
 
-footer.footer-area .social h5{
-    font: normal 200 25px/15px var(--roboto);
+.card h1 { 
+    display: inline; 
+    font-family: "Lucida Sans", Verdana, sans-serif;         
+    font-weight: bold; 
+    font-size: 26px; 
+    line-height: 1.32; 
+    letter-spacing: -0.06em; 
+    margin: 0 0 8px -1.9375px; 
 }
 
-footer.footer-area .social a > i{
-    font-size:22px;
-    padding: .5rem;
-    color: var(--border-color);
+.card .content { 
+    overflow: hidden; 
+    font-family: "Merriweather", Georgia, Cambria, "Times New Roman", Times, serif; 
+    font-weight: 300; 
+    font-size: 16px; 
+    line-height: 1.69; 
+    word-break: break-word; 
+    word-wrap: break-word;
 }
 
-footer.footer-area .social a:hover >i{
-    color: var(--primary-color);
+.card .content p { 
+    margin: 8px 0 8px 0; 
 }
-/* END FOOTER AREA */
+
+.card .content p a { 
+    background-repeat: repeat-x;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #333333 50%); 
+    background-size: 2px 2px; 
+    background-position: 0 1.15em; 
+}
+
+.card .content ul { 
+    margin: 2; 
+}
+
+.center { 
+    box-sizing: border-box; 
+    max-width: 640px; 
+    padding: 0px 20px 22px 20px; 
+    margin: 0 auto 15px auto; 
+}
+
+.center h1 { 
+    font-size: 16px; 
+    font-weight: 600; 
+}
