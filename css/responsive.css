@@ -1,38 +1,136 @@
-
-
-/* if the viewport is equal to 340px or less */
-@media only screen and (max-width: 340px){
-    .banner_top .main-menu .navbar, 
-    .banner_top .main-menu .navbar .navbar-brand,
-    .site-main .projects_area
-    {
-        padding: 2%;
-        margin: 0%;
-        
+@media all and (max-width: 767px) {
+    .header .profile { 
+        padding-top: 36px; 
+        padding-bottom: 36px; 
     }
 
-    .site-main .site_intro .site-title h1{
-        font-size: 41px;
+    .header .profile .portrait img { 
+        width: 80px; height: 80px;
     }
 
-    .site-main > .projects_area .projects{
-        width: 13rem;
+    .header .profile .toolbar { 
+        padding-bottom: 22px; 
+    }
+
+    .header .navigation .tabbar { 
+        font-size: 14px; 
+        padding: 12px 0 18px 0; 
+    }
+
+    .card h1 { 
+        font-size: 25px; 
+        margin-left: -1.75px; 
+    }
+
+    .card { 
+        padding-left: 20px; 
+        padding-right: 20px; 
     }
 }
 
-
-
-/* if the viewport is equal to 1910px or less */
-@media only screen and (max-width: 1910px){
-    .banner_top .main-menu .navbar{
-        padding: 1rem;
+@media all and (max-width: 680px) {
+    .item { 
+        max-width: none; 
+        width: auto; 
+        border-top: 1px solid rgba(0, 0, 0, .09); box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .04); 
     }
 
-    .container{
-        max-width: 90%;
+    .card { 
+        max-width: 640px; 
+        width: 100%; 
+        padding-left: 20px; 
+        padding-right: 20px; 
+        margin: 0 auto 0 auto; 
+        border-radius: 0; 
+        border: 0; 
+        box-shadow: none; 
     }
-
-    .site-main .projects_area, .projects-title{
-        padding: 3% 4%;
-    }    
 }
+
+@media all and (max-width: 640px) {
+    .card { 
+        max-width: 640px; 
+        border-radius: 0; 
+        border-left: 0; 
+        border-right: 0; 
+    }
+}
+
+@media all and (max-width: 550px) {
+    .card .logo { 
+        display: none; 
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body { 
+        background-color: #111111; 
+    }
+
+    .header { 
+        background-color: #1b1b1b; 
+        color: #dfdfdf; 
+    }
+
+    .header a:hover { 
+        color: #dfdfdf;
+    }
+
+    .header a.icon { 
+        color: #8c8c8c; 
+    }
+
+    .header a.icon:hover { 
+        color: #dfdfdf; 
+    }
+
+    .header .profile .intro { 
+        color: #aaaaaa;
+    }
+
+    .header .profile .links { 
+        color: #aaaaaa;
+    }
+
+    .card { 
+        border-color: #2d2d2d; 
+        color: #aaaaaa; 
+        background-color: #1b1b1b; 
+    }
+
+    .card a:hover { 
+        color: #dfdfdf;
+    }
+
+    .card h1 { 
+        color: #dfdfdf; 
+    }
+
+    .header .navigation .tabs { 
+        border-top-color: #505050; 
+    }
+
+    .header .navigation .tab a { 
+        color: #aaaaaa; 
+    }
+
+    .header .navigation .tab a:hover { 
+        color: #ffffff; 
+    }
+
+    .card .content p a { 
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #8f8f8f 50%); 
+    }
+}
+
+@media all and (max-width: 680px) and (prefers-color-scheme: dark) {
+    .item { 
+        border-top-color: rgba(32, 32, 32, 1); 
+    }
+}
+
+@media only screen and (min-device-pixel-ratio:2), only screen and (min-resolution:2dppx), only screen and (-webkit-min-device-pixel-ratio:2) {
+    .card .content p a { background-size: 2px 1px; 
+    }
+}
+    
