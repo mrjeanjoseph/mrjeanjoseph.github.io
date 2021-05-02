@@ -1,2 +1,3 @@
 # mrjeanjoseph.github.io
-This is my portfolio website application 
+Portfolio website application showcasing practical implementation of different programming languages.
+This website is main HTML/CSS/JS
