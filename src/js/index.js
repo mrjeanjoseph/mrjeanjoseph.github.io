@@ -26,17 +26,6 @@ const router = async function () {
     const view = new match.route.view();
 };
 window.addEventListener("popstate", router);
-/*
-    document.addEventListener("DOMContentLoaded", function () {
-        document.body.addEventListener("click", function (event) {
-            if (event.target.matches("[data-link]")) {
-                event.preventDefault();
-                navigateTo(event.target.href);
-            }
-        });
-        router();
-    });
-*/
 
 
 $(document).ready(function () {
@@ -55,5 +44,4 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: 0 }, 200);
         return false;
     });
-
 });

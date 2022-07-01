@@ -36,20 +36,11 @@ const introduction = {
     image: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/1-main.png?raw=true"
 }
 
-// let myName = "Frednel Jean-Joseph",
-//     MyTitle = "Software Developer at TBS-LLC",
-//     inMyToolBelt = "Javascript, jQuery, Node.JS, PL/SQL";
-
 $("#myName").text(introduction.name);
 $("#MyTitle").text(introduction.currentTitle);
 $("#inMyToolBelt").text(introduction.currentStacks);
 
-// $("div a img").append("<img id='theImg' src='theImg.png'/>");
-
-
 $.each(portfolioProjects, function(index, item) {
-    //console.log(item.projectName);
-
     const projects = `
     <div class="item">
         <div class="card">
@@ -62,7 +53,6 @@ $.each(portfolioProjects, function(index, item) {
             </div>
         </div>
     </div>`;
-    console.log(index);
-
+    //console.log(index);
     $("#projectViews").append(projects);
 });
