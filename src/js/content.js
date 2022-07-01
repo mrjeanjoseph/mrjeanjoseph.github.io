@@ -31,8 +31,8 @@ const portfolioProjects = [
 
 const introduction = {
     name: "Frednel Jean-Joseph",
-    currentTitle: "Software Developer at TBS-LLC",
-    currentStacks: "Javascript, jQuery, Node.JS, PL/SQL",
+    currentTitle: "Software Developer",
+    currentStacks: ".NET Core/MVC/API, MSSQL/SSMS, JS/jQ/Angular",
     image: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/1-main.png?raw=true"
 }
 
