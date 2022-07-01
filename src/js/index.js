@@ -39,3 +39,18 @@ window.addEventListener("popstate", router);
 */
 
 
+$(document).ready(function () {
+    $(window).scroll(function () {
+        var showAfter = 100;
+        if ($(this).scrollTop() > showAfter) {
+            $('#toTopBtn').fadeIn();
+        } else {
+            $('#toTopBtn').fadeOut();
+        }
+    });
+
+    $('#toTopBtn').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 200);
+        return false;
+    });
+});
