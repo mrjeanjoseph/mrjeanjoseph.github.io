@@ -40,6 +40,8 @@ window.addEventListener("popstate", router);
 
 
 $(document).ready(function () {
+    $("#toTopBtn").text("Back to top!")
+
     $(window).scroll(function () {
         var showAfter = 100;
         if ($(this).scrollTop() > showAfter) {
@@ -53,4 +55,5 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: 0 }, 200);
         return false;
     });
+
 });
