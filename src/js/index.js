@@ -1,3 +1,11 @@
+//I can go with this or
+$.getScript("src/js/content.js", function(){
+    //alert("Running content.js");
+});
+
+//I can go with that
+//$('body').append('<script type="text/javascript" src="src/js/content.js"></script>');
+
 const navigateTo = function (url) {
     history.pushState(null, null, url);
     router();
@@ -26,6 +34,7 @@ const router = async function () {
     const view = new match.route.view();
 };
 window.addEventListener("popstate", router);
+
 
 
 $(document).ready(function () {
