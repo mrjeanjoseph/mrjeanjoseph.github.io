@@ -182,12 +182,13 @@
   border: none;
   outline: none;
   background-color: #8f8f8f;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   padding: 15px;
   border-radius: 4px;
 }
 
 #toTopBtn:hover {
-  background-color: #555;
+  background-color: #ffffff;
+  color: #2f3640;
 }

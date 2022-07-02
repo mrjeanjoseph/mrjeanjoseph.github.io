@@ -40,6 +40,7 @@ $("#myName").text(introduction.name);
 $("#MyTitle").text(introduction.currentTitle);
 $("#inMyToolBelt").text(introduction.currentStacks);
 
+//Generate all the projects
 $.each(portfolioProjects, function(index, item) {
     const projects = `
     <div class="item">
@@ -56,3 +57,6 @@ $.each(portfolioProjects, function(index, item) {
     //console.log(index);
     $("#projectViews").append(projects);
 });
+
+//Footer
+
