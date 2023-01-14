@@ -1,3 +1,5 @@
+
+
 const portfolioProjects = [
     {
         projectName: "Restaurant Agogo",
@@ -32,7 +34,7 @@ const portfolioProjects = [
 const introduction = {
     name: "Frednel Jean-Joseph",
     currentTitle: "Software Developer",
-    currentStacks: ".NET Core/MVC/WebAPI, MSSQL and jQuery/Angular",
+    currentStacks: ".NET Core/MVC/WebAPI, T-SQL & jQuery",
     image: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/1-main.png?raw=true"
 }
 
