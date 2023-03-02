@@ -56,7 +56,6 @@ $.each(portfolioProjects, function(index, item) {
             </div>
         </div>
     </div>`;
-    //console.log(index);
     $("#projectViews").append(projects);
 });
 
