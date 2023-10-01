@@ -10,29 +10,29 @@ const portfolioProjects = [
     },
     {
         projectName: "ServiceDesk CRM",
-        ProjectDescription: "Develop helpdesk ticketing software application for documentation of client request and resolution",
+        ProjectDescription: "Develop helpdesk ticketing software application for documentation of client request and resolution.",
         projectImageDisplay: "/src/img/img2.png",
         TechnologyToolsUsed:"ASP.NET Core, MS/SQL with frontend Angular.",
         projectURLAddress: "https://github.com/mrjeanjoseph/ServiceDeskCRM"
     },
     {
-        projectName: "TodoList App",
-        ProjectDescription: "A simple todo app to showcase understanding of web development",
-        projectImageDisplay: "https://cdn.lifehack.org/wp-content/uploads/2018/07/todo-list.jpeg",
-        TechnologyToolsUsed:"ASP.NET Core, MS/SQL with frontend Angular.",
-        projectURLAddress: "https://github.com/mrjeanjoseph/CRUD_AllDay/tree/master/js-jq-fundamentals/todolist-app"
+        projectName: "Shopping List App",
+        ProjectDescription: "A simple Shopping List App to showcase understanding of web development.",
+        projectImageDisplay: "/src/img/img3.png",
+        TechnologyToolsUsed:"JavaScript, jQuery and IndexDB.",
+        projectURLAddress: "https://deepvuecrud.github.io/shoppinglist/"
     },
     {
-        projectName: "Currently in the Implementation Phase",
-        ProjectDescription: "Project created to showcase my understanding and expertise in web development",
-        projectImageDisplay: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/content01.gif?raw=true",
+        projectName: "Currently Under Implementation",
+        ProjectDescription: "Projects in the implementation phase are currently being worked on. Stay tuned for more information.",
+        projectImageDisplay: "/src/img/implement.png",
         TechnologyToolsUsed:"HTML, CSS and JavaScript.",
         projectURLAddress: "https://github.com/mrjeanjoseph/CRUD_AllDay/tree/master/js-jq-fundamentals/professional-website"
     },
     {
-        projectName: "Currently Under Construction",
-        ProjectDescription: "Project created to showcase my understanding and expertise in web development",
-        projectImageDisplay: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/content01.gif?raw=true",
+        projectName: "Currently Under Planning",
+        ProjectDescription: "Projects in the planning phase are still being planned and will be addressed when others projects are completed.",
+        projectImageDisplay: "/src/img/planning.jpg",
         TechnologyToolsUsed:"HTML, CSS and JavaScript.",
         projectURLAddress: "https://github.com/mrjeanjoseph/CRUD_AllDay/tree/master/js-jq-fundamentals/professional-website"
     },
