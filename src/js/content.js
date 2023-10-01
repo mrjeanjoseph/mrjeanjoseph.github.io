@@ -1,5 +1,6 @@
 
 
+
 const portfolioProjects = [
     {
         projectName: "Restaurant Agogo",
@@ -47,6 +48,7 @@ const introduction = {
     fullName: "Frednel Jean-Joseph",
     currentTitle: "Software Developer",
     currentStacks: ".NET Framework/MVC/WebAPI, T-SQL & jQuery",
+    disabledKeyword: "Planning Phase"
 }
 
 $("#myName").text(introduction.fullName);
@@ -54,18 +56,17 @@ $("#MyTitle").text(introduction.currentTitle);
 $("#inMyToolBelt").text(introduction.currentStacks);
 
 //Generate all the projects
-$.each(portfolioProjects, function(index, item) {
+$.each(portfolioProjects, function(index, item) { 
+    var insertEle = "target='_blank'";
 
-    if(item.projectName.includes("Planning Phase")){
-        console.log($(this));
-        console.log($(this).parent());
-        $(this).css("background-color", 'red')
+    if(item.projectName.includes(introduction.disabledKeyword)){
+        item.projectURLAddress = "javascript:void(0)";
+        insertEle = "";
     }
-    
     const projectLists = `
     <div class="item">
         <div class="card">
-            <a class="projectImg" target="_blank" href="${item.projectURLAddress}"><img
+            <a class="projectImg" ${insertEle} href="${item.projectURLAddress}"><img
                     src=" ${item.projectImageDisplay}" width="400" height="175" />
             </a>
             <div class="content">
@@ -77,6 +78,8 @@ $.each(portfolioProjects, function(index, item) {
         </div>
     </div>`;
     $("#displayAllProjects").append(projectLists);
+
+
 });
 
 //Footer
