@@ -3,48 +3,48 @@
 const portfolioProjects = [
     {
         projectName: "Restaurant Agogo",
-        ProjectDescription: "Select a random restaurant from a list based on zipcode for you to go to when you can't decide where to eat.",
+        ProjectDescription: "Select a random restaurant based on zipcode and decide where to eat.",
         projectImageDisplay: "/src/img/img1.png",        
-        TechnologyToolsUsed: "ASP.NET Core, MS/SQL hosted on Azure with Angular.",
+        TechnologyToolsUsed: "ASP.NET Core, MS/SQL hosted on Azure with Angular 12.",
         projectURLAddress: "https://github.com/mrjeanjoseph/RestaurantAGoGo"
     },
     {
         projectName: "ServiceDesk CRM",
-        ProjectDescription: "Develop helpdesk ticketing software application for documentation of client request and resolution.",
+        ProjectDescription: "Helpdesk ticketing software application for request and resolution.",
         projectImageDisplay: "/src/img/img2.png",
-        TechnologyToolsUsed:"ASP.NET Core, MS/SQL with frontend Angular.",
+        TechnologyToolsUsed:"ASP.NET Core, MS/SQL with frontend Angular 12.",
         projectURLAddress: "https://github.com/mrjeanjoseph/ServiceDeskCRM"
     },
     {
         projectName: "Shopping List App",
-        ProjectDescription: "A simple Shopping List App to showcase understanding of web development.",
+        ProjectDescription: "Shopping List App to keep track of items purchased.",
         projectImageDisplay: "/src/img/img3.png",
         TechnologyToolsUsed:"JavaScript, jQuery and IndexDB.",
         projectURLAddress: "https://deepvuecrud.github.io/shoppinglist/"
     },
     {
-        projectName: "Currently Under Implementation",
-        ProjectDescription: "Projects in the implementation phase are currently being worked on. Stay tuned for more information.",
-        projectImageDisplay: "/src/img/implement.png",
+        projectName: "Budget Tracker",
+        ProjectDescription: "Budget Tracker app to monitor expenses and deposits.",
+        projectImageDisplay: "/src/img/img4.png",
         TechnologyToolsUsed:"HTML, CSS and JavaScript.",
-        projectURLAddress: "https://github.com/mrjeanjoseph/CRUD_AllDay/tree/master/js-jq-fundamentals/professional-website"
+        projectURLAddress: "https://deepvuecrud.github.io/budget-tracker/"
     },
     {
         projectName: "Currently Under Planning",
-        ProjectDescription: "Projects in the planning phase are still being planned and will be addressed when others projects are completed.",
+        ProjectDescription: "Projects in the planning phase are still being planned and will be addressed when other projects are completed.",
         projectImageDisplay: "/src/img/planning.jpg",
         TechnologyToolsUsed:"HTML, CSS and JavaScript.",
-        projectURLAddress: "https://github.com/mrjeanjoseph/CRUD_AllDay/tree/master/js-jq-fundamentals/professional-website"
+        projectURLAddress: "/"
     },
 ];
 
 const introduction = {
-    name: "Frednel Jean-Joseph",
+    fullName: "Frednel Jean-Joseph",
     currentTitle: "Software Developer",
     currentStacks: ".NET Framework/MVC/WebAPI, T-SQL & jQuery",
 }
 
-$("#myName").text(introduction.name);
+$("#myName").text(introduction.fullName);
 $("#MyTitle").text(introduction.currentTitle);
 $("#inMyToolBelt").text(introduction.currentStacks);
 
@@ -59,6 +59,7 @@ $.each(portfolioProjects, function(index, item) {
             <div class="content">
                 <h1><a target="_blank"></a>${item.projectName}</h1>
                 <p>${item.ProjectDescription}</p>
+                <p>Tool & Framework used: ${item.TechnologyToolsUsed}</p>
                 <p><a target="_blank" href="${item.projectURLAddress}">Click here for more details</a></p>
             </div>
         </div>
