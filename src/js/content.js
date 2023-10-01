@@ -23,7 +23,14 @@ const portfolioProjects = [
         projectURLAddress: "https://github.com/mrjeanjoseph/CRUD_AllDay/tree/master/js-jq-fundamentals/todolist-app"
     },
     {
-        projectName: "Personal Project",
+        projectName: "Currently in the Implementation Phase",
+        ProjectDescription: "Project created to showcase my understanding and expertise in web development",
+        projectImageDisplay: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/content01.gif?raw=true",
+        TechnologyToolsUsed:"HTML, CSS and JavaScript.",
+        projectURLAddress: "https://github.com/mrjeanjoseph/CRUD_AllDay/tree/master/js-jq-fundamentals/professional-website"
+    },
+    {
+        projectName: "Currently Under Construction",
         ProjectDescription: "Project created to showcase my understanding and expertise in web development",
         projectImageDisplay: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/content01.gif?raw=true",
         TechnologyToolsUsed:"HTML, CSS and JavaScript.",
@@ -34,8 +41,7 @@ const portfolioProjects = [
 const introduction = {
     name: "Frednel Jean-Joseph",
     currentTitle: "Software Developer",
-    currentStacks: ".NET Core/MVC/WebAPI, T-SQL & jQuery",
-    image: "https://github.com/mrjeanjoseph/CRUD_AllDay/blob/master/cheatsheet/img/1-main.png?raw=true"
+    currentStacks: ".NET Framework/MVC/WebAPI, T-SQL & jQuery",
 }
 
 $("#myName").text(introduction.name);
@@ -48,7 +54,8 @@ $.each(portfolioProjects, function(index, item) {
     <div class="item">
         <div class="card">
             <a class="" target="_blank" href="${item.projectURLAddress}"><img
-                    src=" ${item.projectImageDisplay}" width="400" height="175" /></a>
+                    src=" ${item.projectImageDisplay}" width="400" height="175" />
+            </a>
             <div class="content">
                 <h1><a target="_blank"></a>${item.projectName}</h1>
                 <p>${item.ProjectDescription}</p>
