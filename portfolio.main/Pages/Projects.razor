@@ -1,0 +1,225 @@
+@page "/projects"
+
+<PageTitle>Projects - Jean-Joseph</PageTitle>
+
+<div class="container py-4">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">My Projects</h1>
+        <p class="lead text-muted">A showcase of Software Solutions I've built using various technologies and frameworks
+        </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mb-5">
+        <div class="btn-group" role="group" aria-label="Project filters">
+            <button type="button" class="btn @(selectedFilter == "All" ? "btn-primary" : "btn-outline-primary")"
+                @onclick='() => FilterProjects("All")'>All</button>
+            <button type="button" class="btn @(selectedFilter == "Web Apps" ? "btn-primary" : "btn-outline-primary")"
+                @onclick='() => FilterProjects("Web Apps")'>Web Apps</button>
+            <button type="button" class="btn @(selectedFilter == "APIs" ? "btn-primary" : "btn-outline-primary")"
+                @onclick='() => FilterProjects("APIs")'>APIs</button>
+            <button type="button" class="btn @(selectedFilter == "Mobile" ? "btn-primary" : "btn-outline-primary")"
+                @onclick='() => FilterProjects("Mobile")'>Mobile</button>
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="row g-4">
+        @foreach (var project in filteredProjects)
+        {
+            <div class="col-lg-6 col-xl-4">
+                <div class="card h-100 shadow-sm project-card">
+                    <div class="card-header bg-transparent border-0 pt-3">
+                        <div class="d-flex align-items-center">
+                            <div class="project-icon me-3">
+                                <i class="@project.IconClass fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="card-title mb-0">@project.Title</h5>
+                                <small class="text-muted">@project.Category</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text flex-grow-1 mb-3">@project.Description</p>
+
+                        <!-- Key Features -->
+                        <div class="mb-3">
+                            <h6 class="text-muted small mb-2">Key Features:</h6>
+                            <ul class="small text-muted mb-0">
+                                @foreach (var feature in project.KeyFeatures)
+                                {
+                                    <li>@feature</li>
+                                }
+                            </ul>
+                        </div>
+
+                        <!-- Technologies -->
+                        <div class="mb-3">
+                            <h6 class="text-muted small mb-2">Technologies:</h6>
+                            <div class="d-flex flex-wrap gap-1">
+                                @foreach (var tech in project.Technologies)
+                                {
+                                    <span class="badge bg-secondary small">@tech</span>
+                                }
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="mt-auto pt-3">
+                            <div title="Live Demo and Source Code coming soon" class="d-grid gap-2 d-md-flex">
+                                <button class="btn btn-primary btn-sm flex-fill" disabled>
+                                    <i class="bi bi-eye me-1"></i> Live Demo
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm flex-fill" disabled>
+                                    <i class="bi bi-github me-1"></i> Code
+                                </button>
+                            </div>
+                            <small class="text-muted d-block mt-2 text-center">
+                                <i class="bi bi-info-circle me-1"></i>Links coming soon
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!filteredProjects.Any())
+    {
+        <div class="text-center py-5">
+            <i class="bi bi-folder-x display-1 text-muted mb-3"></i>
+            <h4 class="text-muted">No projects found</h4>
+            <p class="text-muted">Try selecting a different category filter.</p>
+        </div>
+    }
+</div>
+
+@code {
+    private string selectedFilter = "All";
+    private List<ProjectDetailModel> allProjects = new();
+    private List<ProjectDetailModel> filteredProjects = new();
+
+    protected override void OnInitialized()
+    {
+        LoadProjects();
+        FilterProjects("All");
+    }
+
+    private void FilterProjects(string filter)
+    {
+        selectedFilter = filter;
+        filteredProjects = filter == "All"
+        ? allProjects
+        : allProjects.Where(p => p.Category == filter).ToList();
+        StateHasChanged();
+    }
+
+    private void LoadProjects()
+    {
+        allProjects = new List<ProjectDetailModel>
+{
+new ProjectDetailModel
+{
+Title = "E-Commerce Platform",
+Category = "Web Apps",
+Description = "A comprehensive online shopping platform with advanced features for both customers and administrators. Includes real-time inventory management and analytics.",
+KeyFeatures = new[] { "Real-time inventory tracking", "Secure payment processing", "Advanced analytics dashboard",
+"Multi-vendor support" },
+Technologies = new[] { ".NET 8", "Angular 16", "SQL Server", "Azure App Service", "SignalR", "Stripe API" },
+IconClass = "bi bi-shop text-success"
+},
+new ProjectDetailModel
+{
+Title = "RESTful API Gateway",
+Category = "APIs",
+Description = "Scalable API gateway handling authentication, rate limiting, and request routing for microservices architecture.",
+KeyFeatures = new[] { "JWT authentication", "Rate limiting", "Request routing", "API versioning", "Swagger documentation" },
+Technologies = new[] { ".NET 8", "JWT", "Redis", "Docker", "Azure API Management" },
+IconClass = "bi bi-cloud-arrow-up text-info"
+},
+new ProjectDetailModel
+{
+Title = "Task Management System",
+Category = "Web Apps",
+Description = "Collaborative project management tool with real-time updates, team collaboration features, and comprehensive reporting.",
+KeyFeatures = new[] { "Real-time collaboration", "File sharing", "Progress tracking", "Team communication", "Mobile responsive" },
+Technologies = new[] { "React 18", ".NET Core", "CosmosDB", "Azure Functions", "SignalR" },
+IconClass = "bi bi-list-check text-primary"
+},
+new ProjectDetailModel
+{
+Title = "Financial Analytics API",
+Category = "APIs",
+Description = "High-performance financial data processing API with real-time market data integration and advanced analytics capabilities.",
+KeyFeatures = new[] { "Real-time market data", "Portfolio analytics", "Risk calculations", "Historical data processing" },
+Technologies = new[] { ".NET 8", "TimeSeries DB", "Azure Functions", "Event Hubs", "ML.NET" },
+IconClass = "bi bi-graph-up text-warning"
+},
+new ProjectDetailModel
+{
+Title = "Healthcare Dashboard",
+Category = "Web Apps",
+Description = "HIPAA-compliant patient management system with appointment scheduling, medical records, and secure communication.",
+KeyFeatures = new[] { "HIPAA compliance", "Appointment scheduling", "Secure messaging", "Medical records management" },
+Technologies = new[] { "Blazor Server", "Azure SQL", "Identity Server", "Azure Key Vault" },
+IconClass = "bi bi-heart-pulse text-danger"
+},
+new ProjectDetailModel
+{
+Title = "Mobile Banking App",
+Category = "Mobile",
+Description = "Cross-platform mobile banking application with biometric authentication and real-time transaction processing.",
+KeyFeatures = new[] { "Biometric authentication", "Real-time transactions", "Account management", "Push notifications" },
+Technologies = new[] { ".NET MAUI", "SQLite", "Azure Mobile Apps", "Xamarin.Essentials" },
+IconClass = "bi bi-phone text-success"
+},
+new ProjectDetailModel
+{
+Title = "IoT Monitoring Platform",
+Category = "Web Apps",
+Description = "Comprehensive IoT device monitoring with predictive analytics, automated alerts, and device management capabilities.",
+KeyFeatures = new[] { "Real-time monitoring", "Predictive analytics", "Automated alerts", "Device management" },
+Technologies = new[] { "Azure IoT Hub", "React", "Time Series Insights", "Azure ML", "Power BI" },
+IconClass = "bi bi-cpu text-info"
+},
+new ProjectDetailModel
+{
+Title = "Microservices Communication API",
+Category = "APIs",
+Description = "Event-driven microservices communication layer with message queuing, event sourcing, and distributed tracing.",
+KeyFeatures = new[] { "Event sourcing", "Message queuing", "Distributed tracing", "Circuit breaker pattern" },
+Technologies = new[] { ".NET 8", "RabbitMQ", "Azure Service Bus", "OpenTelemetry", "Docker" },
+IconClass = "bi bi-diagram-3 text-primary"
+},
+new ProjectDetailModel
+{
+Title = "Learning Management System",
+Category = "Web Apps",
+Description = "Feature-rich LMS with course creation, progress tracking, interactive assessments, and video streaming.",
+KeyFeatures = new[] { "Course creation tools", "Progress tracking", "Interactive quizzes", "Video streaming" },
+Technologies = new[] { "Blazor", "SQL Server", "Azure Media Services", "Azure CDN" },
+IconClass = "bi bi-mortarboard text-success"
+},
+new ProjectDetailModel
+{
+Title = "Fitness Tracking App",
+Category = "Mobile",
+Description = "Personal fitness tracking application with workout planning, nutrition tracking, and social features.",
+KeyFeatures = new[] { "Workout planning", "Nutrition tracking", "Social features", "Progress analytics" },
+Technologies = new[] { ".NET MAUI", "SQLite", "Azure Mobile Services", "Health APIs" },
+IconClass = "bi bi-activity text-warning"
+}
+};
+    }
+
+    public class ProjectDetailModel
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Category { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string[] KeyFeatures { get; set; } = Array.Empty<string>();
+        public string[] Technologies { get; set; } = Array.Empty<string>();
+        public string IconClass { get; set; } = string.Empty;
+    }
+}

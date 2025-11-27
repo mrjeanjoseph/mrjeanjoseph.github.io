@@ -1,0 +1,292 @@
+@page "/experience"
+
+<PageTitle>Experience - Frednel Jean-Joseph</PageTitle>
+
+<div class="container py-4">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">Professional Experience</h1>
+        <p class="lead text-muted">My journey as a software engineer and the technologies I've mastered</p>
+    </div>
+
+    <!-- Experience Timeline -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="timeline">
+                @foreach (var (experience, index) in WorkExperience.Select((exp, i) => (exp, i)))
+                {
+                    <div class="timeline-item @(index % 2 == 0 ? "timeline-left" : "timeline-right")">
+                        <div class="timeline-marker">
+                            <div class="timeline-marker-icon">
+                                <i class="bi bi-briefcase"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <h5 class="card-title mb-1">@experience.Position</h5>
+                                            <h6 class="text-primary mb-2">@experience.Company</h6>
+                                        </div>
+                                        <span class="badge bg-secondary">@experience.Duration</span>
+                                    </div>
+                                    <p class="card-text text-muted mb-3">@experience.Description</p>
+
+                                    <!-- Key Achievements -->
+                                    <h6 class="text-muted small mb-2">Key Achievements:</h6>
+                                    <ul class="small mb-3">
+                                        @foreach (var achievement in experience.Achievements)
+                                        {
+                                            <li>@achievement</li>
+                                        }
+                                    </ul>
+
+                                    <!-- Technologies Used -->
+                                    <div>
+                                        <h6 class="text-muted small mb-2">Technologies:</h6>
+                                        <div class="d-flex flex-wrap gap-1">
+                                            @foreach (var tech in experience.Technologies)
+                                            {
+                                                <span class="badge bg-light text-dark border small">@tech</span>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills & Certifications Section -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-award me-2"></i>Certifications</h5>
+                </div>
+                <div class="card-body">
+                    @foreach (var cert in Certifications)
+                    {
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="flex-shrink-0 me-3">
+                                <div class="cert-icon">
+                                    <i class="@cert.IconClass"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1">@cert.Name</h6>
+                                <small class="text-muted">@cert.Issuer • @cert.Date</small>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-graph-up me-2"></i>Skill Proficiency</h5>
+                </div>
+                <div class="card-body">
+                    @foreach (var skill in TechnicalSkills)
+                    {
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold">@skill.Name</span>
+                                <span class="text-muted small">@skill.Level%</span>
+                            </div>
+                            <div class="progress" style="height: 8px;">
+                                <div class="progress-bar @skill.ColorClass" role="progressbar" style="width: @skill.Level%"
+                                    aria-valuenow="@skill.Level" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <div class="mt-5">
+        <h3 class="text-center mb-4">Education</h3>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                @foreach (var edu in Education)
+                {
+                    <div class="card shadow-sm mb-3">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h5 class="card-title mb-1">@edu.Degree</h5>
+                                    <h6 class="text-primary mb-2">@edu.Institution</h6>
+                                    <p class="text-muted mb-0">@edu.Description</p>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <span class="badge bg-secondary fs-6">@edu.Year</span>
+                                    @if (!string.IsNullOrEmpty(edu.GPA))
+                                    {
+                                        <div class="mt-2">
+                                            <small class="text-muted">GPA: @edu.GPA</small>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<WorkExperienceModel> WorkExperience = new()
+{
+new WorkExperienceModel
+{
+Position = "Fullstack .NET Developer",
+Company = "Maximus",
+Duration = "08/2022 - Present",
+Description = "Responsible for maintaining and architecting scalable solutions using .NET backend, SQL Server, and jQuery frontend.",
+Achievements = new[]
+{
+"Reduced application load times by 40% through optimization",
+"Led migration of legacy systems to Azure cloud platform",
+"Mentored 5 junior developers and improved team productivity by 25%",
+"Implemented CI/CD pipelines reducing deployment time by 60%"
+},
+Technologies = new[] { ".NET 4.8", "WCF", "SQL Server", "MVC", "SSRS", "WebAPI", "Git/BitBucket", "Jira Mgmt",
+"SharePoint" }
+},
+new WorkExperienceModel
+{
+Position = "Frontend Developer",
+Company = "Technology Business Solutions",
+Duration = "06/2021 - 07/2022",
+Description = "Developed and maintained web applications using modern technologies. Collaborated with cross-functional teams to deliver high-quality software solutions.",
+Achievements = new[]
+{
+"Built 3 major web applications serving core business functions",
+"Improved code quality by implementing automated testing",
+"Reduced bug reports by 35% through rigorous testing practices",
+"Integrated third-party APIs and payment systems"
+},
+Technologies = new[] { ".NET Core", "React", "SQL Server", "Azure DevOps", "REST APIs" }
+},
+new WorkExperienceModel
+{
+Position = "Software Developer ",
+Company = "DeepVue Continuum (Start-up)",
+Duration = "02/2017 - 08/2021",
+Description = "Worked in a fast-paced startup environment building MVP products and iterating based on dev, QA and user feedback. Gained experience in agile development methodologies, collaborative teamwork, and end-to-end product development.",
+Achievements = new[]
+{
+"Developed MVP for 2 successful software solutions",
+"Implemented responsive design improving mobile usage by 50%",
+"Collaborated with other developers to enhance user experience",
+"Participated in code reviews and knowledge sharing sessions"
+},
+Technologies = new[] { ".NET Core 5", "Angular 12", "HTML/CSS/JS/jQ", "SQL Server", "Git/GitHub", "Azure DevOps" }
+}
+};
+
+    private List<CertificationModel> Certifications = new()
+{
+new CertificationModel
+{
+Name = "Microsoft Azure Developer Associate",
+Issuer = "Microsoft",
+Date = "2023",
+IconClass = "bi bi-microsoft text-primary"
+},
+new CertificationModel
+{
+Name = "C#/.NET Core Certification",
+Issuer = "Grand Circus of Detroit, MI",
+Date = "2021",
+IconClass = "bi bi-code-square text-success"
+},
+@* new CertificationModel
+{
+Name = "SQL Server Database Administration",
+Issuer = "Microsoft",
+Date = "2021",
+IconClass = "bi bi-database text-info"
+},
+new CertificationModel
+{
+Name = "Agile Development Practices",
+Issuer = "Scrum Alliance",
+Date = "2020",
+IconClass = "bi bi-arrow-repeat text-warning"
+} *@
+};
+
+    private List<SkillModel> TechnicalSkills = new()
+{
+new SkillModel { Name = ".NET / C#", Level = 95, ColorClass = "bg-primary" },
+new SkillModel { Name = "SQL Server", Level = 90, ColorClass = "bg-info" },
+new SkillModel { Name = "Angular", Level = 85, ColorClass = "bg-danger" },
+new SkillModel { Name = "React", Level = 85, ColorClass = "bg-warning" },
+new SkillModel { Name = "Azure Cloud", Level = 75, ColorClass = "bg-success" },
+new SkillModel { Name = "Docker", Level = 75, ColorClass = "bg-secondary" }
+};
+
+    private List<EducationModel> Education = new()
+{
+new EducationModel
+{
+Degree = "Fullstack .NET Developer Certificate",
+Institution = "Grand Circus - Detroit, MI",
+Year = "06/2021",
+GPA = "3.9/4.0",
+Description = "Complete bootcamp in .NET Software Development; frontend, backend and database."
+},
+new EducationModel
+{
+Degree = "Bachelor of Science in Business Information Systems",
+Institution = "East Carolina University",
+Year = "2019",
+GPA = "3.8/4.0",
+Description = "Focused on Business Information Systems, database systems."
+},
+};
+
+    public class WorkExperienceModel
+    {
+        public string Position { get; set; } = string.Empty;
+        public string Company { get; set; } = string.Empty;
+        public string Duration { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string[] Achievements { get; set; } = Array.Empty<string>();
+        public string[] Technologies { get; set; } = Array.Empty<string>();
+    }
+
+    public class CertificationModel
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Issuer { get; set; } = string.Empty;
+        public string Date { get; set; } = string.Empty;
+        public string IconClass { get; set; } = string.Empty;
+    }
+
+    public class SkillModel
+    {
+        public string Name { get; set; } = string.Empty;
+        public int Level { get; set; }
+        public string ColorClass { get; set; } = string.Empty;
+    }
+
+    public class EducationModel
+    {
+        public string Degree { get; set; } = string.Empty;
+        public string Institution { get; set; } = string.Empty;
+        public string Year { get; set; } = string.Empty;
+        public string GPA { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+    }
+}

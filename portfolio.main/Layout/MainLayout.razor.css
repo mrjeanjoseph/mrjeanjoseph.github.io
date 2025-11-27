@@ -1,0 +1,115 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
+
+.top-row {
+    background-color: var(--bg-color, #f7f7f7);
+    border-bottom: 1px solid var(--border-color, #d6d5d5);
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
+
+.top-row ::deep a,
+.top-row ::deep .btn-link {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color, #212529);
+}
+
+.top-row ::deep a:hover,
+.top-row ::deep .btn-link:hover {
+    text-decoration: underline;
+}
+
+.top-row ::deep a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Content area styling */
+.content {
+    padding: 1.1rem 2rem;
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .top-row {
+        justify-content: flex-end;
+        padding-left: 70px;
+        /* Space for mobile toggle button */
+    }
+
+    .top-row ::deep a,
+    .top-row ::deep .btn-link {
+        margin-left: 1rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+    main {
+        margin-left: 280px;
+        /* Match the sidebar width */
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+/* Dark mode support */
+body.dark-mode .top-row {
+    background-color: var(--bg-color);
+    border-bottom-color: var(--border-color);
+}
+
+/* Back to Top button */
+.back-to-top {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .15);
+}
+
+.back-to-top i {
+    font-size: 1.1rem;
+}
+
+.back-to-top:hover {
+    transform: translateY(-2px);
+}
+
+/* Respect dark mode contrast when primary is customized */
+body.dark-mode .back-to-top {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+}

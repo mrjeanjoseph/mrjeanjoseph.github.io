@@ -1,0 +1,41 @@
+@namespace portfolio.main.Components
+
+@if (Show)
+{
+    <div class="modal fade show" tabindex="-1" style="display:block;" role="dialog" aria-modal="true"
+        @onclick="OnOverlayClick">
+        <div class="modal-dialog" style="--bs-modal-width: @WidthCss; max-width: 1200px; height:90vh; margin:0 auto;"
+            @onclick:stopPropagation>
+            <div class="modal-content" style="height:100%;display:flex;flex-direction:column;">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Title</h5>
+                    <div class="d-flex align-items-center gap-2">
+                        @if (HeaderActions is not null)
+                        {
+                            @HeaderActions
+                        }
+                        <button type="button" class="btn-close" aria-label="Close" @onclick="OnClose"></button>
+                    </div>
+                </div>
+                <div class="modal-body p-0" style="flex:1;overflow:hidden;">
+                    @ChildContent
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+    [Parameter] public bool Show { get; set; }
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public string WidthCss { get; set; } = "75vw";
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public RenderFragment? HeaderActions { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+
+    private async Task OnOverlayClick()
+    {
+        await OnClose.InvokeAsync();
+    }
+}

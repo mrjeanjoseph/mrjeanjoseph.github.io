@@ -1,0 +1,256 @@
+@page "/contact"
+
+<PageTitle>Contact - Jean-Joseph</PageTitle>
+
+<div class="container py-4">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">Get In Touch</h1>
+        <p class="lead text-muted">Let's discuss opportunities and build something of value together</p>
+    </div>
+
+    <div class="row">
+        <!-- Contact Information -->
+        <div class="col-lg-4 mb-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <div class="contact-avatar mb-4">
+                        <img src="/assets/profile-img.jpeg" alt="Head shot image of Frednel Jean-Joseph"
+                            class="rounded-circle img-fluid">
+                    </div>
+                    <h4 class="mb-3">Frednel Jean-Joseph</h4>
+                    <p class="text-muted mb-4">Software Engineer</p>
+
+                    <!-- Contact Methods -->
+                    <div class="contact-methods">
+
+                        <div class="contact-item mb-3">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt-fill text-info"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h6 class="mb-0">Location</h6>
+                                <span class="text-muted">Raleigh-Durham, NC</span>
+                            </div>
+                        </div>
+
+                        <div class="contact-item mb-4">
+                            <div class="contact-icon">
+                                <i class="bi bi-clock-fill text-warning"></i>
+                            </div>
+                            <div class="contact-info">
+                                <h6 class="mb-0">Availability</h6>
+                                <span class="text-muted">Open to opportunities</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <h6 class="text-muted mb-3">Connect with me</h6>
+                        <div class="d-flex justify-content-center gap-3">
+                            <a class="btn btn-outline-primary btn-sm" href="https://www.linkedin.com/in/fjeanjoseph/"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-linkedin"></i> LinkedIn
+                            </a>
+                            <a class="btn btn-outline-dark btn-sm" href="https://github.com/mrjeanjoseph"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="bi bi-github"></i> GitHub
+                            </a>
+                            <a class="btn btn-outline-info btn-sm" href="https://x.com/fjeanjoseph180" target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="bi bi-twitter"></i> Twitter
+                            </a>
+                        </div>
+                        <small class="text-muted d-block mt-2">Thanks for connecting!</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-chat-dots me-2"></i>Send me a message</h5>
+                </div>
+                <div class="card-body">
+                    @if (formSubmitted)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            <i class="bi bi-check-circle me-2"></i>
+                            Thank you for your message! I'll get back to you soon.
+                        </div>
+                    }
+                    else
+                    {
+                        <EditForm Model="contactForm" OnValidSubmit="HandleSubmit">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary class="text-danger mb-3" />
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <InputText @bind-Value="contactForm.Name" class="form-control" id="name"
+                                        placeholder="Enter your full name" />
+                                    <ValidationMessage For="@(() => contactForm.Name)" class="text-danger small" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <InputText @bind-Value="contactForm.Email" class="form-control" id="email"
+                                        placeholder="Enter your email address" />
+                                    <ValidationMessage For="@(() => contactForm.Email)" class="text-danger small" />
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <InputText @bind-Value="contactForm.Phone" class="form-control" id="phone"
+                                        placeholder="Enter your phone number" />
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="company" class="form-label">Company</label>
+                                    <InputText @bind-Value="contactForm.Company" class="form-control" id="company"
+                                        placeholder="Enter your company name" />
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <InputSelect @bind-Value="contactForm.Subject" class="form-select" id="subject">
+                                    <option value="">Select a subject</option>
+                                    <option value="Job Opportunity">Job Opportunity</option>
+                                    <option value="Freelance Project">Freelance Project</option>
+                                    <option value="Collaboration">Collaboration</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Other">Other</option>
+                                </InputSelect>
+                                <ValidationMessage For="@(() => contactForm.Subject)" class="text-danger small" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message *</label>
+                                <InputTextArea @bind-Value="contactForm.Message" class="form-control" id="message" rows="5"
+                                    placeholder="Tell me about your project or opportunity..." />
+                                <ValidationMessage For="@(() => contactForm.Message)" class="text-danger small" />
+                            </div>
+
+                            <div class="mb-3 form-check">
+                                <InputCheckbox @bind-Value="contactForm.NewsletterSubscribe" class="form-check-input"
+                                    id="newsletter" />
+                                <label class="form-check-label" for="newsletter">
+                                    Subscribe to my newsletter for tech updates and insights
+                                </label>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button" class="btn btn-outline-secondary me-md-2" @onclick="ResetForm">
+                                    <i class="bi bi-arrow-clockwise me-1"></i> Reset
+                                </button>
+                                <button type="submit" class="btn btn-primary" disabled="@isSubmitting">
+                                    @if (isSubmitting)
+                                    {
+                                        <span class="spinner-border spinner-border-sm me-2" role="status"
+                                            aria-hidden="true"></span>
+                                    }
+                                    else
+                                    {
+                                        <i class="bi bi-send me-1"></i>
+                                    }
+                                    Send Message
+                                </button>
+                            </div>
+                        </EditForm>
+                    }
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="mt-4">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card text-center h-100 border-0 bg-light">
+                            <div class="card-body">
+                                <i class="bi bi-lightning-charge-fill text-primary fs-2 mb-2"></i>
+                                <h6>Quick Response</h6>
+                                <small class="text-muted">I typically respond within 24 hours</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center h-100 border-0 bg-light">
+                            <div class="card-body">
+                                <i class="bi bi-shield-check-fill text-success fs-2 mb-2"></i>
+                                <h6>Confidential</h6>
+                                <small class="text-muted">Your information is kept private and secure</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center h-100 border-0 bg-light">
+                            <div class="card-body">
+                                <i class="bi bi-chat-heart-fill text-info fs-2 mb-2"></i>
+                                <h6>Let's Connect</h6>
+                                <small class="text-muted">Always excited to discuss new opportunities</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private ContactFormModel contactForm = new();
+    private bool formSubmitted = false;
+    private bool isSubmitting = false;
+
+    private async Task HandleSubmit()
+    {
+        isSubmitting = true;
+
+        // Simulate form submission delay
+        await Task.Delay(2000);
+
+        // In a real application, you would send the form data to a server
+        // For this demo, we'll just show a success message
+        formSubmitted = true;
+        isSubmitting = false;
+
+        StateHasChanged();
+    }
+
+    private void ResetForm()
+    {
+        contactForm = new ContactFormModel();
+        formSubmitted = false;
+        StateHasChanged();
+    }
+
+    public class ContactFormModel
+    {
+        [Required(ErrorMessage = "Name is required")]
+        [StringLength(100, ErrorMessage = "Name cannot exceed 100 characters")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Please enter a valid email address")]
+        public string Email { get; set; } = string.Empty;
+
+        [Phone(ErrorMessage = "Please enter a valid phone number")]
+        public string Phone { get; set; } = string.Empty;
+
+        [StringLength(100, ErrorMessage = "Company name cannot exceed 100 characters")]
+        public string Company { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Subject is required")]
+        public string Subject { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Message is required")]
+        [StringLength(1000, MinimumLength = 10, ErrorMessage = "Message must be between 10 and 1000 characters")]
+        public string Message { get; set; } = string.Empty;
+
+        public bool NewsletterSubscribe { get; set; } = false;
+    }
+}

@@ -1,0 +1,90 @@
+﻿<div class="modern-sidebar @(collapseNavMenu ? "" : "show")">
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="profile-avatar">
+            <img src="/assets/profile-img.jpeg" alt="Frednel Jean-Joseph" class="avatar-img">
+        </div>
+        <div class="profile-info">
+            <h6 class="profile-name">Frednel Jean-Joseph</h6>
+            <p class="profile-title">Software Engineer</p>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="modern-nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <NavLink class="nav-link-modern" href="" Match="NavLinkMatch.All" @onclick="CloseNavOnMobile">
+                    <div class="nav-icon">
+                        <i class="bi bi-house-door"></i>
+                    </div>
+                    <span class="nav-text">Home</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link-modern" href="projects" @onclick="CloseNavOnMobile">
+                    <div class="nav-icon">
+                        <i class="bi bi-folder-plus"></i>
+                    </div>
+                    <span class="nav-text">Projects</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link-modern" href="experience" @onclick="CloseNavOnMobile">
+                    <div class="nav-icon">
+                        <i class="bi bi-briefcase"></i>
+                    </div>
+                    <span class="nav-text">Experience</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link-modern" href="contact" @onclick="CloseNavOnMobile">
+                    <div class="nav-icon">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <span class="nav-text">Contact</span>
+                </NavLink>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Footer Section -->
+    <div class="nav-footer">
+        <div class="social-links-nav">
+            <a href="https://github.com/mrjeanjoseph" target="_blank" class="social-link" title="GitHub">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/frednel-jean-joseph" target="_blank" class="social-link" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="mailto:frednel@example.com" class="social-link" title="Email">
+                <i class="bi bi-envelope"></i>
+            </a>
+        </div>
+        <div class="nav-version">
+            <small class="text-muted">v2.0</small>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Toggle -->
+<button class="mobile-toggle d-md-none" @onclick="ToggleNavMenu" title="Toggle navigation">
+    <i class="bi @(collapseNavMenu ? "bi-list" : "bi-x")"></i>
+</button>
+
+<!-- Mobile Overlay -->
+<div class="mobile-overlay @(collapseNavMenu ? "" : "show")" @onclick="ToggleNavMenu"></div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void CloseNavOnMobile()
+    {
+        collapseNavMenu = true;
+    }
+}

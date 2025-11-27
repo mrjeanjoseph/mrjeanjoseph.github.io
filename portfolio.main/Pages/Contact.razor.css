@@ -1,0 +1,4 @@
+/* Flip only the avatar image on the Contact page */
+.contact-avatar img {
+    transform: scaleX(-1);
+}
