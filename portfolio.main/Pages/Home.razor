@@ -9,8 +9,9 @@
             <div class="col-lg-10 mx-auto">
                 <h1 class="display-4 fw-bold">Welcome, I'm Jean-Joseph</h1>
                 <h2 class="h4 mb-3">Software Engineer</h2>
-                <p class="lead mb-4">A fullstack .NET Developer specializing in Angular, React, Blazor, SQL Server, and
-                    Azure Cloud Solutions</p>
+                <p class="lead mb-4">
+                    A fullstack .NET Developer specializing in Blazor, Angular, React, SQL Server, and Azure Cloud Solutions.
+                </p>
                 <div class="d-flex gap-3 flex-wrap justify-content-center">
                     <span class="badge bg-light text-dark fs-6 px-3 py-2">.NET Core</span>
                     <span class="badge bg-light text-dark fs-6 px-3 py-2">Angular</span>
@@ -61,12 +62,14 @@
                             }
                         </div>
                         <div class="mt-auto" title="Demo and Source Code coming soon">
-                            <button class="btn btn-outline-primary me-2" disabled>
-                                <i class="bi bi-eye"></i> View Demo
-                            </button>
-                            <button class="btn btn-outline-secondary" disabled>
-                                <i class="bi bi-github"></i> Source Code
-                            </button>
+                            <div class="btn-group flex-nowrap" role="group" aria-label="Demo and Source">
+                                <button class="btn btn-outline-primary" disabled>
+                                    <i class="bi bi-eye"></i> View Demo
+                                </button>
+                                <button class="btn btn-outline-secondary" disabled>
+                                    <i class="bi bi-github"></i> Source Code
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,46 +81,46 @@
 <!-- Skills Section -->
 <div class="bg-light py-5">
     <div class="container">
-        <h3 class="text-center mb-5">Technical Skills</h3>
-        <div class="row">
-            <div class="col-md-3 mb-4">
+        <h3 class="text-center mb-5">==Technical Skills==</h3>
+        <div class="row skills-mobile-center">
+            <div class="col-md-3 mb-4 text-center text-md-start">
                 <h5><i class="bi bi-code-square text-primary me-2"></i>Frontend</h5>
-                <ul class="list-unstyled">
-                    <li>• Angular 15+</li>
-                    <li>• React.js</li>
-                    <li>• Blazor</li>
-                    <li>• Razor Pages</li>
-                    <li>• JS/TS</li>
+                <ul class="list-unstyled d-inline-block text-start">
+                    <li>@mscm Angular 15+</li>
+                    <li>@mscm React.js</li>
+                    <li>@mscm Blazor</li>
+                    <li>@mscm Razor Pages</li>
+                    <li>@mscm JS/TS</li>
                 </ul>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-3 mb-4 text-center text-md-start">
                 <h5><i class="bi bi-server text-primary me-2"></i>Backend</h5>
-                <ul class="list-unstyled">
-                    <li>• .NET 6/7/8</li>
-                    <li>• Web API</li>
-                    <li>• Legacy .NET 4.8</li>
-                    <li>• ASP.NET WCF</li>
-                    <li>• Entity Framework</li>
+                <ul class="list-unstyled d-inline-block text-start">
+                    <li>@mscm .NET 6/7/8</li>
+                    <li>@mscm Web API</li>
+                    <li>@mscm Legacy .NET 4.8</li>
+                    <li>@mscm ASP.NET WCF</li>
+                    <li>@mscm Entity Framework</li>
                 </ul>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-3 mb-4 text-center text-md-start">
                 <h5><i class="bi bi-database text-primary me-2"></i>Database</h5>
-                <ul class="list-unstyled">
-                    <li>• SQL Server</li>
-                    <li>• MySQL</li>
-                    <li>• Azure SQL</li>
-                    <li>• CosmosDB</li>
-                    <li>• Redis Cache</li>
+                <ul class="list-unstyled d-inline-block text-start">
+                    <li>@mscm SQL Server</li>
+                    <li>@mscm MySQL</li>
+                    <li>@mscm Azure SQL</li>
+                    <li>@mscm CosmosDB</li>
+                    <li>@mscm Redis Cache</li>
                 </ul>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="col-md-3 mb-4 text-center text-md-start">
                 <h5><i class="bi bi-cloud text-primary me-2"></i>Cloud & DevOps</h5>
-                <ul class="list-unstyled">
-                    <li>• Azure App Service</li>
-                    <li>• Azure Functions</li>
-                    <li>• Azure DevOps</li>
-                    <li>• Docker</li>
-                    <li>• Git/GitHub</li>
+                <ul class="list-unstyled d-inline-block text-start">
+                    <li>@mscm Azure App Service</li>
+                    <li>@mscm Azure Functions</li>
+                    <li>@mscm Azure DevOps</li>
+                    <li>@mscm Docker</li>
+                    <li>@mscm Git/GitHub</li>
                 </ul>
             </div>
         </div>
@@ -125,51 +128,46 @@
 </div>
 
 @code {
-    private List<ProjectModel> FeaturedProjects = new()
-{
-new ProjectModel
-{
-Title = "E-Commerce Platform",
-Description = "Full-stack e-commerce solution with real-time inventory management, secure payment processing, and admin dashboard. Built with modern architecture and scalable design.",
-Technologies = new[] { ".NET 8", "Angular", "SQL Server", "Azure", "SignalR" },
-IconClass = "bi bi-shop text-success"
-},
-new ProjectModel
-{
-Title = "Task Management System",
-Description = "Collaborative project management tool with real-time updates, file sharing, and team communication features. Includes mobile-responsive design and offline capabilities.",
-Technologies = new[] { "React", ".NET Core", "CosmosDB", "Azure Functions" },
-IconClass = "bi bi-list-check text-info"
-},
-new ProjectModel
-{
-Title = "Financial Dashboard",
-Description = "Real-time financial analytics dashboard with interactive charts, portfolio tracking, and automated reporting. Integrated with multiple financial APIs.",
-Technologies = new[] { "Blazor", "Chart.js", "Azure SQL", "Web APIs" },
-IconClass = "bi bi-graph-up text-warning"
-},
-new ProjectModel
-{
-Title = "Healthcare Management",
-Description = "HIPAA-compliant patient management system with appointment scheduling, medical records, and secure messaging between doctors and patients.",
-Technologies = new[] { ".NET 8", "Angular", "Azure", "Identity Server" },
-IconClass = "bi bi-heart-pulse text-danger"
-},
-new ProjectModel
-{
-Title = "IoT Monitoring Hub",
-Description = "Real-time IoT device monitoring platform with predictive analytics, automated alerts, and comprehensive device management capabilities.",
-Technologies = new[] { "Azure IoT Hub", "React", "Time Series DB", "ML.NET" },
-IconClass = "bi bi-cpu text-primary"
-},
-new ProjectModel
-{
-Title = "Learning Management System",
-Description = "Comprehensive LMS with course creation tools, progress tracking, interactive quizzes, and video streaming capabilities for online education.",
-Technologies = new[] { "Blazor Server", "SQL Server", "Azure Media Services" },
-IconClass = "bi bi-mortarboard text-success"
-}
-};
+    private MarkupString mscm = (MarkupString)"<span>✔️</span>";
+
+    private List<ProjectModel> FeaturedProjects = new() {
+        new ProjectModel {
+            Title = "E-Commerce Platform",
+            Description = "Full-stack e-commerce solution with real-time inventory management, secure payment processing, and admin dashboard. Built with modern architecture and scalable design.",
+            Technologies = new[] { ".NET 8", "Angular", "SQL Server", "Azure", "SignalR" },
+            IconClass = "bi bi-shop text-success"
+        },
+        new ProjectModel {
+            Title = "Task Management System",
+            Description = "Collaborative project management tool with real-time updates, file sharing, and team communication features. Includes mobile-responsive design and offline capabilities.",
+            Technologies = new[] { "React", ".NET Core", "CosmosDB", "Azure Functions" },
+            IconClass = "bi bi-list-check text-info"
+        },
+        new ProjectModel {
+            Title = "Financial Dashboard",
+            Description = "Real-time financial analytics dashboard with interactive charts, portfolio tracking, and automated reporting. Integrated with multiple financial APIs.",
+            Technologies = new[] { "Blazor", "Chart.js", "Azure SQL", "Web APIs" },
+            IconClass = "bi bi-graph-up text-warning"
+        },
+        new ProjectModel {
+            Title = "Healthcare Management",
+            Description = "HIPAA-compliant patient management system with appointment scheduling, medical records, and secure messaging between doctors and patients.",
+            Technologies = new[] { ".NET 8", "Angular", "Azure", "Identity Server" },
+            IconClass = "bi bi-heart-pulse text-danger"
+        },
+        new ProjectModel {
+            Title = "IoT Monitoring Hub",
+            Description = "Real-time IoT device monitoring platform with predictive analytics, automated alerts, and comprehensive device management capabilities.",
+            Technologies = new[] { "Azure IoT Hub", "React", "Time Series DB", "ML.NET" },
+            IconClass = "bi bi-cpu text-primary"
+        },
+        new ProjectModel {
+            Title = "Learning Management System",
+            Description = "Comprehensive LMS with course creation tools, progress tracking, interactive quizzes, and video streaming capabilities for online education.",
+            Technologies = new[] { "Blazor Server", "SQL Server", "Azure Media Services" },
+            IconClass = "bi bi-mortarboard text-success"
+        }
+    };
 
     public class ProjectModel
     {
