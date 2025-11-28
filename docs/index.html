@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jean-Joseph - Portfolio</title>
+    <title>Frednel Jean-Joseph - Software Engineer Portfolio</title>
     <meta name="description"
         content="Professional portfolio of Frednel Jean-Joseph, a .NET software engineer specializing in Angular, React, SQL Server, and Azure cloud solutions.">
     <meta name="keywords"
@@ -31,7 +31,7 @@
                     <div class="coffee-handle"></div>
                 </div>
                 <div class="coffee-status mt-3">
-                    Brewing your app...
+                    Brewing the app...
                 </div>
             </div>
         </div>
@@ -58,13 +58,22 @@
                 }
             }, 120);
         })();
-        // Hide loader when Blazor boot script attaches to the app
-        document.addEventListener('readystatechange', function () {
-            if (document.readyState === 'complete') {
-                const loader = document.getElementById('blazor-startup-loader');
-                if (loader) loader.style.display = 'none';
-            }
-        });
+
+        // Hide loader only after Blazor renders into #app to avoid white flash
+        (function () {
+            const app = document.getElementById('app');
+            const loader = document.getElementById('blazor-startup-loader');
+            if (!app || !loader) return;
+
+            const observer = new MutationObserver(() => {
+                // When Blazor adds content to #app, remove the loader overlay
+                if (app.childElementCount > 0) {
+                    loader.style.display = 'none';
+                    observer.disconnect();
+                }
+            });
+            observer.observe(app, { childList: true });
+        })();
     </script>
 </body>
 
