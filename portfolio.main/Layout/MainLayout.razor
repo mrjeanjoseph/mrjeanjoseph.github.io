@@ -146,12 +146,12 @@
     private readonly string cvPath = "/assets/resume.pdf";
 
     private List<CertificationItem> certs = new()
-{
-new("AZ-900: Microsoft Azure Fundamentals", "/assets/certs/az-900-thumb.png", "/assets/certs/az-900.pdf"),
-new("AZ-204: Developing Solutions for Microsoft Azure", "/assets/certs/az-204-thumb.png", ""),
-new("C-Sharp .NET: Fullstack .NET Bootcamp", "/assets/certs/c-shart.net-core.png",
-"/assets/certs/c-shart.net-core.pdf"),
-};
+    {
+        new("AZ-900: Microsoft Azure Fundamentals", "/assets/certs/az-900-thumb.png", "/assets/certs/az-900.pdf"),
+        new("AZ-204: Developing Solutions for Microsoft Azure", "/assets/certs/az-204-thumb.png", ""),
+        new("C-Sharp .NET: Fullstack .NET Bootcamp", "/assets/certs/c-shart.net-core.png",
+        "/assets/certs/c-shart.net-core.pdf"),
+    };
 
     private CertificationItem? selectedCert;
     private string CertsModalTitle => viewingCert && selectedCert is not null ? selectedCert.Title : "Certifications";

@@ -4,6 +4,14 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+# Ensure local repo is up to date before publishing
+$repoRoot = $PSScriptRoot
+Write-Host "Updating local repository..."
+& git -C $repoRoot fetch --all
+$branch = (& git -C $repoRoot rev-parse --abbrev-ref HEAD).Trim()
+Write-Host "Pulling latest from origin/$branch..."
+& git -C $repoRoot pull --rebase origin $branch
+
 Write-Host "Publishing Blazor project..."
 # Publish the Blazor WebAssembly project to local publish folder
 & dotnet publish "portfolio.main/portfolio.main.csproj" -c Release -o "publish"
@@ -34,7 +42,6 @@ if (Test-Path $frameworkDir) {
 }
 
 Write-Host "Preparing to commit and push changes..."
-$repoRoot = $PSScriptRoot
 
 # Stage changes: docs by default, all if -All specified
 if ($All) {
@@ -58,8 +65,6 @@ $commitMessage = "Local deploy to docs folder [local-deploy]"
 Write-Host "Committing changes..."
 & git -C $repoRoot commit -m $commitMessage
 
-# Auto-detect branch
-$branch = (& git -C $repoRoot rev-parse --abbrev-ref HEAD).Trim()
 Write-Host "Pushing to origin/$branch..."
 & git -C $repoRoot push origin $branch
 
