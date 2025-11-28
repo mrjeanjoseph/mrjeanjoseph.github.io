@@ -1,4 +1,4 @@
-name: Deploy Blazor Web App to GitHub Pages
+name: Deploy Blazor Web App to GitHub Pages (docs folder)
 
 on:
   push:
@@ -7,6 +7,8 @@ on:
 
 jobs:
   build:
+    # Skip if commit message tagged as local deploy
+    if: ${{ !contains(github.event.head_commit.message, '[local-deploy]') }}
     runs-on: ubuntu-latest
 
     steps:
@@ -16,22 +18,24 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: "8.0.x"
 
       - name: Publish Blazor Web App
-        run: dotnet publish Portfolio/portfolio.main/portfolio.main.csproj -c Release -o publish
+        run: dotnet publish portfolio.main/portfolio.main.csproj -c Release -o publish
 
-      - name: Copy published files
+      - name: Copy published files into docs/
         run: |
-          rm -rf ./*
-          cp -r publish/wwwroot/* .
-          echo "" > .nojekyll
-          find . -type f \( -name "*.br" -o -name "*.gz" \) -delete
+          rm -rf docs/*
+          cp -r publish/wwwroot/* docs/
+          echo "" > docs/.nojekyll
+          if [ -d "docs/_framework" ]; then
+            find docs/_framework -type f \( -name "*.br" -o -name "*.gz" \) -delete
+          fi
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Automated deploy from GitHub Actions"
+          git add docs
+          git commit -m "Automated deploy to docs folder"
           git push origin main
