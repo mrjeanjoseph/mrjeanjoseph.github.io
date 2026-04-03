@@ -1,0 +1,206 @@
+﻿@using portfolio.main.Components
+@inject IJSRuntime JSRuntime
+
+<!-- More Detail Navigation Item -->
+<div class="more-detail-nav-item" @ref="navItemRef">
+    <div class="nav-link-modern more-detail-link">
+        <div class="nav-icon">
+            <i class="bi bi-person-circle"></i>
+        </div>
+        <span class="nav-text">More Detail</span>
+        <i class="bi bi-chevron-right dropdown-arrow"></i>
+    </div>
+
+    <!-- Dropdown Menu - appears on right on hover -->
+    <div class="more-detail-dropdown" style="@dropdownStyle">
+        <div class="dropdown-content">
+            <button class="dropdown-item-custom" type="button" @onclick="ShowCvModal">
+                <i class="bi bi-file-earmark-person me-2"></i>Get CV
+            </button>
+            <button class="dropdown-item-custom" type="button" @onclick="ShowCertsModal">
+                <i class="bi bi-award me-2"></i>Get Certifications
+            </button>
+            <div class="dropdown-divider-custom"></div>
+            <a class="dropdown-item-custom" href="https://github.com/mrjeanjoseph" target="_blank">
+                <i class="bi bi-github me-2"></i>Visit GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- CV Modal -->
+<Modal Show="@showCvModal" Title="Resume (PDF)" WidthCss="75vw" OnClose="CloseCvModal">
+    <HeaderActions>
+        @if (!string.IsNullOrWhiteSpace(activePdfPath))
+        {
+            <a class="btn btn-sm btn-outline-light" href="@activePdfPath" target="_blank" download>
+                <i class="bi bi-download me-1"></i>Download
+            </a>
+        }
+    </HeaderActions>
+    <ChildContent>
+        <object class="doc-viewer" data="@activePdfPath" type="application/pdf">
+            <div class="p-3">
+                <h6 class="mb-2">Unable to display PDF.</h6>
+                <p class="mb-2">
+                    @if (string.IsNullOrWhiteSpace(activePdfPath))
+                    {
+                        <span>No PDF path configured. Expected at <code>/assets/resume.pdf</code>.</span>
+                    }
+                    else
+                    {
+                        <span>Ensure the file exists at <code>@activePdfPath</code> under
+                            <code>wwwroot</code>.</span>
+                    }
+                </p>
+                @if (!string.IsNullOrWhiteSpace(activePdfPath))
+                {
+                    <a class="btn btn-sm btn-primary" href="@activePdfPath" target="_blank">
+                        <i class="bi bi-box-arrow-up-right me-1"></i>Open in new tab
+                    </a>
+                }
+            </div>
+        </object>
+    </ChildContent>
+</Modal>
+
+<!-- Certifications Modal -->
+<Modal Show="@showCertsModal" Title="@CertsModalTitle" WidthCss="75vw" OnClose="CloseCertsModal">
+    <HeaderActions>
+        @if (viewingCert && selectedCert is not null)
+        {
+            @if (!string.IsNullOrWhiteSpace(selectedCert.PdfPath))
+            {
+                <a class="btn btn-sm btn-outline-light" href="@selectedCert.PdfPath" target="_blank" download>
+                    <i class="bi bi-download me-1"></i>Download
+                </a>
+            }
+            <button class="btn btn-sm btn-outline-light" @onclick="BackToCertsGrid">
+                <i class="bi bi-arrow-left me-1"></i>Back
+            </button>
+        }
+    </HeaderActions>
+    <ChildContent>
+        @if (!viewingCert)
+        {
+            <div class="cert-grid">
+                @foreach (CertificationItem c in certs)
+                {
+                    <div class="cert-card" @onclick="() => SelectCert(c)">
+                        <img class="cert-thumb" src="@c.ThumbPath" alt="@c.Title" />
+                        <div class="cert-caption">@c.Title</div>
+                    </div>
+                }
+            </div>
+        }
+        else if (selectedCert is not null)
+        {
+            @if (string.IsNullOrWhiteSpace(selectedCert.PdfPath))
+            {
+                <iframe class="doc-viewer" src="@skillsoftWalletUrl"></iframe>
+            }
+            else
+            {
+                <object class="doc-viewer" data="@selectedCert.PdfPath" type="application/pdf">
+                    <iframe class="doc-viewer" src="@skillsoftWalletUrl"></iframe>
+                </object>
+            }
+        }
+    </ChildContent>
+</Modal>
+
+@code {
+    private ElementReference navItemRef;
+    private string dropdownStyle = "";
+    private bool showCvModal = false;
+    private bool showCertsModal = false;
+    private bool viewingCert = false;
+    private string? activePdfPath;
+    private readonly string cvPath = "/assets/resume.pdf";
+
+    private List<CertificationItem> certs = new()
+    {
+        new("AZ-900: Microsoft Azure Fundamentals", "/assets/certs/az-900-thumb.png", "/assets/certs/az-900.pdf"),
+        new("AZ-204: Developing Solutions for Microsoft Azure", "/assets/certs/az-204-thumb.png", ""),
+        new("C-Sharp .NET: Fullstack .NET Bootcamp", "/assets/certs/c-shart.net-core.png", "/assets/certs/c-shart.net-core.pdf"),
+    };
+
+    private CertificationItem? selectedCert;
+    private string CertsModalTitle => viewingCert && selectedCert is not null ? selectedCert.Title : "Certifications";
+    private readonly string skillsoftWalletUrl =
+    "https://skillsoft.digitalbadges.skillsoft.com/profile/fredneljeanjoseph168496/wallet";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await CalculateDropdownPosition();
+        }
+    }
+
+    private async Task CalculateDropdownPosition()
+    {
+        try
+        {
+            var rect = await JSRuntime.InvokeAsync<dynamic>("eval", 
+                "document.querySelector('.more-detail-nav-item').getBoundingClientRect()");
+
+            if (rect != null)
+            {
+                double top = rect.top;
+                dropdownStyle = $"top: {top}px;";
+                StateHasChanged();
+            }
+        }
+        catch
+        {
+            // Fallback - keep default positioning
+        }
+    }
+
+    private void ShowCvModal()
+    {
+        activePdfPath = cvPath;
+        showCvModal = true;
+        StateHasChanged();
+    }
+
+    private void CloseCvModal()
+    {
+        showCvModal = false;
+        activePdfPath = null;
+        StateHasChanged();
+    }
+
+    private void ShowCertsModal()
+    {
+        showCertsModal = true;
+        viewingCert = false;
+        selectedCert = null;
+        StateHasChanged();
+    }
+
+    private void CloseCertsModal()
+    {
+        showCertsModal = false;
+        viewingCert = false;
+        selectedCert = null;
+        StateHasChanged();
+    }
+
+    private void SelectCert(CertificationItem item)
+    {
+        selectedCert = item;
+        viewingCert = true;
+        StateHasChanged();
+    }
+
+    private void BackToCertsGrid()
+    {
+        viewingCert = false;
+        selectedCert = null;
+        StateHasChanged();
+    }
+
+    private record CertificationItem(string Title, string ThumbPath, string PdfPath);
+}

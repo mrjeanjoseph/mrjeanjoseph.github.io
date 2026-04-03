@@ -1,4 +1,6 @@
-﻿<div class="modern-sidebar @(collapseNavMenu ? "" : "show")">
+﻿@using portfolio.main.Pages
+
+<div class="modern-sidebar @(collapseNavMenu ? "" : "show")">
     <!-- Profile Header -->
     <div class="profile-header">
         <div class="profile-avatar">
@@ -44,6 +46,10 @@
                     </div>
                     <span class="nav-text">Contact</span>
                 </NavLink>
+            </li>
+            <!-- More Details Navigation Item -->
+            <li class="nav-item">
+                <MoreDetail />
             </li>
         </ul>
     </nav>
