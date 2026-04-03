@@ -174,12 +174,14 @@ body.dark-mode .dropdown-divider-custom {
 @media (max-width: 768px) {
     .more-detail-dropdown {
         left: auto;
-        right: 0;
-        margin-left: 0;
-        margin-right: 1rem;
+        right: 1rem;
+        max-height: 80vh;
+        overflow-y: auto;
     }
-    
+
     .dropdown-content {
         min-width: 220px;
+        max-height: calc(80vh - 1rem);
+        overflow-y: auto;
     }
 }

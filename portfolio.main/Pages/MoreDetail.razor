@@ -163,6 +163,14 @@
         if (firstRender)
         {
             await CalculateDropdownPosition();
+
+            // Add resize listener to recalculate position on window resize
+            await JSRuntime.InvokeVoidAsync("eval", @"
+                window.addEventListener('resize', () => {
+                    const event = new CustomEvent('recalculateDropdown');
+                    window.dispatchEvent(event);
+                });
+            ");
         }
     }
 
@@ -176,7 +184,23 @@
             if (rect != null)
             {
                 double top = rect.top;
-                dropdownStyle = $"top: {top}px;";
+                double bottom = rect.bottom;
+                double windowHeight = await JSRuntime.InvokeAsync<double>("eval", "window.innerHeight");
+                double dropdownHeight = 300; // Estimated dropdown height
+
+                // Check if dropdown would overflow below viewport
+                if (bottom + dropdownHeight > windowHeight)
+                {
+                    // Position dropdown to end at the bottom of viewport with some margin
+                    double adjustedTop = Math.Max(10, windowHeight - dropdownHeight - 20);
+                    dropdownStyle = $"top: {adjustedTop}px;";
+                }
+                else
+                {
+                    // Normal positioning aligned with the menu item
+                    dropdownStyle = $"top: {top}px;";
+                }
+
                 StateHasChanged();
             }
         }
@@ -186,10 +210,13 @@
         }
     }
 
-    private void OpenDropdown()
+    private async void OpenDropdown()
     {
         CancelCloseTimer();
         isDropdownOpen = true;
+
+        // Recalculate position when opening to ensure proper placement
+        await CalculateDropdownPosition();
     }
 
     private void StartCloseTimer()
