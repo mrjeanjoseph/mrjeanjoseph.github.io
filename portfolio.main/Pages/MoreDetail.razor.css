@@ -93,12 +93,22 @@
     transform: translateX(-10px);
     transition: all 0.3s ease;
     z-index: 1500;
+    pointer-events: none;
 }
 
+.more-detail-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+/* Keep hover effect for backwards compatibility */
 .more-detail-nav-item:hover .more-detail-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+    pointer-events: auto;
 }
 
 .dropdown-content {

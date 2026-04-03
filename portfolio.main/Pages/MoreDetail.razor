@@ -1,8 +1,9 @@
 ﻿@using portfolio.main.Components
 @inject IJSRuntime JSRuntime
+@implements IDisposable
 
 <!-- More Detail Navigation Item -->
-<div class="more-detail-nav-item" @ref="navItemRef">
+<div class="more-detail-nav-item" @ref="navItemRef" @onmouseenter="OpenDropdown" @onmouseleave="StartCloseTimer">
     <div class="nav-link-modern more-detail-link">
         <div class="nav-icon">
             <i class="bi bi-person-circle"></i>
@@ -12,7 +13,7 @@
     </div>
 
     <!-- Dropdown Menu - appears on right on hover -->
-    <div class="more-detail-dropdown" style="@dropdownStyle">
+    <div class="more-detail-dropdown @(isDropdownOpen ? "show" : "")" style="@dropdownStyle" @onmouseenter="CancelCloseTimer" @onmouseleave="StartCloseTimer">
         <div class="dropdown-content">
             <button class="dropdown-item-custom" type="button" @onclick="ShowCvModal">
                 <i class="bi bi-file-earmark-person me-2"></i>Get CV
@@ -21,8 +22,13 @@
                 <i class="bi bi-award me-2"></i>Get Certifications
             </button>
             <div class="dropdown-divider-custom"></div>
-            <a class="dropdown-item-custom" href="https://github.com/mrjeanjoseph" target="_blank">
-                <i class="bi bi-github me-2"></i>Visit GitHub
+            <a class="dropdown-item-custom" href="@skillsoftWalletUrl" target="_blank">
+                <i class="bi bi-award me-2"></i>Skillsoft Badges
+                <i class="bi bi-box-arrow-up-right ms-auto small"></i>
+            </a>
+            <a class="dropdown-item-custom" href="@msLearnUrl" target="_blank">
+                <i class="bi bi-mortarboard me-2"></i>MS Learn
+                <i class="bi bi-box-arrow-up-right ms-auto small"></i>
             </a>
         </div>
     </div>
@@ -75,6 +81,21 @@
                     <i class="bi bi-download me-1"></i>Download
                 </a>
             }
+            else
+            {
+                <!-- External site selector buttons -->
+                <a class="btn btn-sm btn-outline-light" 
+                   href="@msLearnUrl" 
+                   target="_blank"
+                   title="Opens in new tab">
+                    <i class="bi bi-mortarboard me-1"></i>MS Learn
+                    <i class="bi bi-box-arrow-up-right ms-1 small"></i>
+                </a>
+                <button class="btn btn-sm @(externalSiteView == "skillsoft" ? "btn-primary" : "btn-outline-light")" 
+                        @onclick="() => LoadSkillsoft()">
+                    <i class="bi bi-award me-1"></i>Skillsoft
+                </button>
+            }
             <button class="btn btn-sm btn-outline-light" @onclick="BackToCertsGrid">
                 <i class="bi bi-arrow-left me-1"></i>Back
             </button>
@@ -97,21 +118,23 @@
         {
             @if (string.IsNullOrWhiteSpace(selectedCert.PdfPath))
             {
-                <iframe class="doc-viewer" src="@skillsoftWalletUrl"></iframe>
+                <iframe class="doc-viewer" src="@currentExternalUrl"></iframe>
             }
             else
             {
                 <object class="doc-viewer" data="@selectedCert.PdfPath" type="application/pdf">
-                    <iframe class="doc-viewer" src="@skillsoftWalletUrl"></iframe>
+                    <iframe class="doc-viewer" src="@currentExternalUrl"></iframe>
                 </object>
             }
         }
     </ChildContent>
 </Modal>
 
+
 @code {
     private ElementReference navItemRef;
     private string dropdownStyle = "";
+    private bool isDropdownOpen = false;
     private bool showCvModal = false;
     private bool showCertsModal = false;
     private bool viewingCert = false;
@@ -121,7 +144,7 @@
     private List<CertificationItem> certs = new()
     {
         new("AZ-900: Microsoft Azure Fundamentals", "/assets/certs/az-900-thumb.png", "/assets/certs/az-900.pdf"),
-        new("AZ-204: Developing Solutions for Microsoft Azure", "/assets/certs/az-204-thumb.png", ""),
+        new("AZ-204: Microsoft Certified: Azure Developer Associate", "/assets/certs/az-204-thumb.png", ""),
         new("C-Sharp .NET: Fullstack .NET Bootcamp", "/assets/certs/c-shart.net-core.png", "/assets/certs/c-shart.net-core.pdf"),
     };
 
@@ -129,6 +152,11 @@
     private string CertsModalTitle => viewingCert && selectedCert is not null ? selectedCert.Title : "Certifications";
     private readonly string skillsoftWalletUrl =
     "https://skillsoft.digitalbadges.skillsoft.com/profile/fredneljeanjoseph168496/wallet";
+    private readonly string msLearnUrl = "https://learn.microsoft.com/en-us/users/mrjeanjoseph/";
+    private string externalSiteView = "skillsoft"; // Default to Skillsoft
+    private string currentExternalUrl = "";
+
+    private System.Threading.Timer? closeTimer;
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -158,8 +186,62 @@
         }
     }
 
+    private void OpenDropdown()
+    {
+        CancelCloseTimer();
+        isDropdownOpen = true;
+    }
+
+    private void StartCloseTimer()
+    {
+        closeTimer?.Dispose();
+        closeTimer = new System.Threading.Timer(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                isDropdownOpen = false;
+                StateHasChanged();
+            });
+        }, null, 200, System.Threading.Timeout.Infinite);
+    }
+
+    private void CancelCloseTimer()
+    {
+        closeTimer?.Dispose();
+        closeTimer = null;
+    }
+
+    private void CloseDropdown()
+    {
+        CancelCloseTimer();
+        isDropdownOpen = false;
+    }
+
+    public void Dispose()
+    {
+        closeTimer?.Dispose();
+    }
+
+    private void CloseAllModals()
+    {
+        showCvModal = false;
+        showCertsModal = false;
+        viewingCert = false;
+        selectedCert = null;
+        activePdfPath = null;
+        externalSiteView = "skillsoft"; // Reset to default
+        currentExternalUrl = "";
+    }
+
     private void ShowCvModal()
     {
+        // Close any open modals first
+        CloseAllModals();
+
+        // Close the dropdown
+        CloseDropdown();
+
+        // Open CV modal
         activePdfPath = cvPath;
         showCvModal = true;
         StateHasChanged();
@@ -174,6 +256,13 @@
 
     private void ShowCertsModal()
     {
+        // Close any open modals first
+        CloseAllModals();
+
+        // Close the dropdown
+        CloseDropdown();
+
+        // Open Certifications modal
         showCertsModal = true;
         viewingCert = false;
         selectedCert = null;
@@ -192,6 +281,21 @@
     {
         selectedCert = item;
         viewingCert = true;
+
+        // Set default external URL to Skillsoft when selecting a cert without PDF
+        if (string.IsNullOrWhiteSpace(item.PdfPath))
+        {
+            externalSiteView = "skillsoft";
+            currentExternalUrl = skillsoftWalletUrl;
+        }
+
+        StateHasChanged();
+    }
+
+    private void LoadSkillsoft()
+    {
+        externalSiteView = "skillsoft";
+        currentExternalUrl = skillsoftWalletUrl;
         StateHasChanged();
     }
 
@@ -199,6 +303,8 @@
     {
         viewingCert = false;
         selectedCert = null;
+        externalSiteView = "skillsoft"; // Reset to default
+        currentExternalUrl = "";
         StateHasChanged();
     }
 
