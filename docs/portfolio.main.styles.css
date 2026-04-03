@@ -781,12 +781,22 @@ body.dark-mode .mobile-toggle[b-dkc5zj7fy5] {
     transform: translateX(-10px);
     transition: all 0.3s ease;
     z-index: 1500;
+    pointer-events: none;
 }
 
+.more-detail-dropdown.show[b-by3zdgsq9t] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+/* Keep hover effect for backwards compatibility */
 .more-detail-nav-item:hover .more-detail-dropdown[b-by3zdgsq9t] {
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+    pointer-events: auto;
 }
 
 .dropdown-content[b-by3zdgsq9t] {
